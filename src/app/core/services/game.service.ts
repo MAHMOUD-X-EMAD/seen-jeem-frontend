@@ -10,7 +10,9 @@ import {
   GameSetupResponse,
   RevealAnswerResponse,
   SelectedQuestionResponse,
-  SelectQuestionRequest
+  SelectQuestionRequest,
+  UseHelpOptionRequest,
+  UseHelpOptionResponse
 } from '../models/game.model';
 
 @Injectable({
@@ -59,4 +61,15 @@ export class GameService {
       request
     );
   }
+
+  useHelpOption(
+    gameSessionId: string,
+    gameTurnId: string,
+    request: UseHelpOptionRequest
+    ): Observable<UseHelpOptionResponse> {
+    return this.http.post<UseHelpOptionResponse>(
+        `${this.apiUrl}/${gameSessionId}/turns/${gameTurnId}/use-help-option`,
+        request
+    );
+    }
 }

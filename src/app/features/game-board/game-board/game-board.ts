@@ -74,6 +74,8 @@ export class GameBoardComponent implements OnInit, OnDestroy {
   timerRunning = false;
   timerMode: 'main' | 'second' = 'main';
 
+  selectedPreQuestionHelpType: 'DoublePoints' | null = null;
+
   private timerRef: ReturnType<typeof setInterval> | null = null;
   private destroyed = false;
 
@@ -124,43 +126,51 @@ export class GameBoardComponent implements OnInit, OnDestroy {
   }
 
   openQuestion(
-    category: GameBoardCategoryDto,
-    question: GameBoardQuestionDto
-  ): void {
-    if (question.isUsed || this.activeQuestion || this.actionLoading) {
-      return;
-    }
-
-    this.turnErrorMessage = '';
-    this.successMessage = '';
-    this.revealedAnswer = null;
-    this.correctTeamId = null;
-    this.mainTeamAnswerText = '';
-    this.secondTeamAnswerText = '';
-    this.actionLoading = true;
-    this.detect();
-
-    this.gameService.selectQuestion(this.gameSessionId, {
-      gameQuestionId: question.gameQuestionId,
-      useDoublePoints: false
-    }).subscribe({
-      next: (response) => {
-        this.activeQuestion = response;
-
-        question.isUsed = true;
-
-        this.actionLoading = false;
-        this.startTimer(response.mainTeamTimerSeconds, 'main');
-
-        this.detect();
-      },
-      error: (error) => {
-        this.turnErrorMessage = error?.error || 'حصل خطأ أثناء فتح السؤال.';
-        this.actionLoading = false;
-        this.detect();
-      }
-    });
+  category: GameBoardCategoryDto,
+  question: GameBoardQuestionDto
+): void {
+  if (question.isUsed || this.activeQuestion || this.actionLoading) {
+    return;
   }
+
+  this.turnErrorMessage = '';
+  this.successMessage = '';
+  this.revealedAnswer = null;
+  this.correctTeamId = null;
+  this.mainTeamAnswerText = '';
+  this.secondTeamAnswerText = '';
+  this.actionLoading = true;
+  this.detect();
+
+  const useDoublePoints = this.selectedPreQuestionHelpType === 'DoublePoints';
+
+  this.gameService.selectQuestion(this.gameSessionId, {
+    gameQuestionId: question.gameQuestionId,
+    useDoublePoints
+  }).subscribe({
+    next: (response) => {
+      this.activeQuestion = response;
+
+      question.isUsed = true;
+
+      if (response.isDoublePointsUsed) {
+        this.markHelpAsUsed(response.mainTeam.id, 'DoublePoints');
+      }
+
+      this.selectedPreQuestionHelpType = null;
+
+      this.actionLoading = false;
+      this.startTimer(response.mainTeamTimerSeconds, 'main');
+
+      this.detect();
+    },
+    error: (error) => {
+      this.turnErrorMessage = error?.error || 'حصل خطأ أثناء فتح السؤال.';
+      this.actionLoading = false;
+      this.detect();
+    }
+  });
+}
 
   revealAnswer(): void {
     if (!this.activeQuestion || this.actionLoading) {
@@ -263,6 +273,7 @@ export class GameBoardComponent implements OnInit, OnDestroy {
     this.mainTeamAnswerText = '';
     this.secondTeamAnswerText = '';
     this.turnErrorMessage = '';
+    this.selectedPreQuestionHelpType = null;
 
     this.detect();
   }
@@ -381,4 +392,193 @@ export class GameBoardComponent implements OnInit, OnDestroy {
   trackByQuestionId(index: number, question: GameBoardQuestionDto): string {
     return question.gameQuestionId;
   }
+
+  isCurrentTurnTeam(teamId: string): boolean {
+  return this.game?.currentTurnTeamId === teamId;
+}
+
+canUseHelpOption(teamId: string, helpType: string, isUsed: boolean): boolean {
+  if (!this.game) {
+    return false;
+  }
+
+  if (!this.isCurrentTurnTeam(teamId)) {
+    return false;
+  }
+
+  if (isUsed || this.activeQuestion || this.actionLoading) {
+    return false;
+  }
+
+  return helpType === 'DoublePoints';
+}
+
+togglePreQuestionHelp(teamId: string, helpType: string, isUsed: boolean): void {
+  if (!this.canUseHelpOption(teamId, helpType, isUsed)) {
+    return;
+  }
+
+  this.selectedPreQuestionHelpType =
+    this.selectedPreQuestionHelpType === 'DoublePoints'
+      ? null
+      : 'DoublePoints';
+
+  this.detect();
+}
+
+isHelpSelected(teamId: string, helpType: string): boolean {
+  return (
+    this.isCurrentTurnTeam(teamId) &&
+    helpType === 'DoublePoints' &&
+    this.selectedPreQuestionHelpType === 'DoublePoints'
+  );
+}
+
+getHelpIcon(helpType: string): string {
+  switch (helpType) {
+    case 'DoublePoints':
+      return '⚡';
+    case 'TwoAnswers':
+      return '✌️';
+    case 'StopPlayer':
+      return '🛑';
+    default:
+      return '🎁';
+  }
+}
+
+markHelpAsUsed(teamId: string, helpType: string): void {
+  const team = this.game?.teams.find(x => x.id === teamId);
+
+  if (!team) {
+    return;
+  }
+
+  const help = team.helpOptions.find(x => x.type === helpType);
+
+  if (help) {
+    help.isUsed = true;
+    help.usedAt = new Date().toISOString();
+  }
+}
+
+getTeamHelpOption(teamId: string, helpType: string) {
+  const team = this.game?.teams.find(x => x.id === teamId);
+
+  if (!team) {
+    return null;
+  }
+
+  return team.helpOptions.find(x => x.type === helpType) ?? null;
+}
+
+canUseTwoAnswers(): boolean {
+  if (!this.activeQuestion || this.revealedAnswer || this.actionLoading) {
+    return false;
+  }
+
+  const help = this.getTeamHelpOption(
+    this.activeQuestion.mainTeam.id,
+    'TwoAnswers'
+  );
+
+  return !!help && !help.isUsed;
+}
+
+canUseStopPlayer(): boolean {
+  if (!this.activeQuestion || this.revealedAnswer || this.actionLoading) {
+    return false;
+  }
+
+  const help = this.getTeamHelpOption(
+    this.activeQuestion.secondTeam.id,
+    'StopPlayer'
+  );
+
+  return !!help && !help.isUsed;
+}
+
+useTwoAnswers(): void {
+  if (!this.activeQuestion || !this.canUseTwoAnswers()) {
+    return;
+  }
+
+  this.useTurnHelpOption(
+    this.activeQuestion.mainTeam.id,
+    'TwoAnswers'
+  );
+}
+
+useStopPlayer(): void {
+  if (!this.activeQuestion || !this.canUseStopPlayer()) {
+    return;
+  }
+
+  this.useTurnHelpOption(
+    this.activeQuestion.secondTeam.id,
+    'StopPlayer'
+  );
+}
+
+useTurnHelpOption(teamId: string, helpType: 'TwoAnswers' | 'StopPlayer'): void {
+  if (!this.activeQuestion) {
+    return;
+  }
+
+  this.actionLoading = true;
+  this.turnErrorMessage = '';
+  this.detect();
+
+  this.gameService.useHelpOption(
+    this.gameSessionId,
+    this.activeQuestion.gameTurnId,
+    {
+      teamId,
+      type: helpType,
+      playerId: null
+    }
+  ).subscribe({
+    next: (response) => {
+      this.markHelpAsUsed(response.teamId, response.type);
+
+      if (response.type === 'TwoAnswers') {
+        this.successMessage = 'تم تفعيل مساعدة إجابتين للفريق اللي عليه الدور.';
+      }
+
+      if (response.type === 'StopPlayer') {
+        this.successMessage = 'تم تفعيل مساعدة إيقاف لاعب للفريق المنافس.';
+      }
+
+      this.actionLoading = false;
+      this.detect();
+    },
+    error: (error) => {
+      this.turnErrorMessage = error?.error || 'حصل خطأ أثناء استخدام وسيلة المساعدة.';
+      this.actionLoading = false;
+      this.detect();
+    }
+  });
+}
+
+isTwoAnswersUsed(): boolean {
+  if (!this.activeQuestion) {
+    return false;
+  }
+
+  return !!this.getTeamHelpOption(
+    this.activeQuestion.mainTeam.id,
+    'TwoAnswers'
+  )?.isUsed;
+}
+
+isStopPlayerUsed(): boolean {
+  if (!this.activeQuestion) {
+    return false;
+  }
+
+  return !!this.getTeamHelpOption(
+    this.activeQuestion.secondTeam.id,
+    'StopPlayer'
+  )?.isUsed;
+}
 }

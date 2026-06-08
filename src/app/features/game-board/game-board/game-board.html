@@ -17,10 +17,10 @@
 
   <ng-container *ngIf="!loading && game">
     <section class="board-header">
-      <div>
+      <!-- <div>
         <p class="eyebrow">لوحة اللعب</p>
         <p>كود الغرفة: <strong>{{ game.roomCode }}</strong></p>
-      </div>
+      </div> -->
 
       <button
         type="button"
@@ -33,21 +33,52 @@
     </section>
 
     <section class="teams-score">
-      <article class="team-card" *ngFor="let team of game.teams">
-        <div>
-          <span>الفريق {{ team.turnOrder }}</span>
-          <h4>{{ team.name }}</h4>
-        </div>
+  <article
+    class="team-card"
+    *ngFor="let team of game.teams"
+    [class.current-turn]="isCurrentTurnTeam(team.id)"
+  >
+    <div>
+      <span>الفريق {{ team.turnOrder }}</span>
+      <h4>{{ team.name }}</h4>
 
-        <strong>{{ team.score }}</strong>
+      <p class="turn-label" *ngIf="isCurrentTurnTeam(team.id)">
+        عليه الدور الآن
+      </p>
+    </div>
 
-        <div class="helpers">
-          <small *ngFor="let help of team.helpOptions">
-            {{ help }}
-          </small>
-        </div>
-      </article>
-    </section>
+    <strong>{{ team.score }}</strong>
+
+    <div class="helpers">
+      <button
+        type="button"
+        class="help-chip"
+        *ngFor="let help of team.helpOptions"
+        [class.used]="help.isUsed"
+        [class.selected]="isHelpSelected(team.id, help.type)"
+        [disabled]="!canUseHelpOption(team.id, help.type, help.isUsed)"
+        (click)="togglePreQuestionHelp(team.id, help.type, help.isUsed)"
+      >
+        <span>{{ getHelpIcon(help.type) }}</span>
+        <em>{{ help.title }}</em>
+
+        <small *ngIf="help.isUsed">مستخدمة</small>
+        <small *ngIf="!help.isUsed && isHelpSelected(team.id, help.type)">
+          مختارة للسؤال القادم
+        </small>
+      </button>
+    </div>
+  </article>
+</section>
+
+<div
+  class="selected-help-banner"
+  *ngIf="selectedPreQuestionHelpType && game?.currentTurnTeamName"
+>
+  ⚡ تم اختيار دبل النقط للفريق:
+  <strong>{{ game.currentTurnTeamName }}</strong>
+  السؤال القادم ستكون نقاطه مضاعفة.
+</div>
 
     <div *ngIf="actionLoading && !activeQuestion" class="loading-card">
       جاري فتح السؤال...
@@ -82,7 +113,7 @@
             (click)="openQuestion(category, question)"
           >
             <span>{{ question.points }}</span>
-            <small>{{ question.difficulty }}</small>
+            <!-- <small>{{ question.difficulty }}</small> -->
           </button>
         </div>
       </article>
@@ -117,6 +148,51 @@
             <strong>{{ activeQuestion.secondTeam.name }}</strong>
           </div>
         </div>
+        <div class="active-question-helpers">
+            <article
+                class="active-help-card"
+                [class.used]="isTwoAnswersUsed()"
+            >
+                <div>
+                <span>✌️</span>
+                <strong>إجابتين</strong>
+                <p>
+                    متاحة للفريق اللي عليه الدور:
+                    {{ activeQuestion.mainTeam.name }}
+                </p>
+                </div>
+
+                <button
+                type="button"
+                [disabled]="!canUseTwoAnswers()"
+                (click)="useTwoAnswers()"
+                >
+                {{ isTwoAnswersUsed() ? 'تم استخدامها' : 'استخدام' }}
+                </button>
+            </article>
+
+            <article
+                class="active-help-card danger"
+                [class.used]="isStopPlayerUsed()"
+            >
+                <div>
+                <span>🛑</span>
+                <strong>إيقاف لاعب</strong>
+                <p>
+                    متاحة للفريق المنافس:
+                    {{ activeQuestion.secondTeam.name }}
+                </p>
+                </div>
+
+                <button
+                type="button"
+                [disabled]="!canUseStopPlayer()"
+                (click)="useStopPlayer()"
+                >
+                {{ isStopPlayerUsed() ? 'تم استخدامها' : 'استخدام' }}
+                </button>
+            </article>
+            </div>
 
         <div class="question-text">
           {{ activeQuestion.questionText }}

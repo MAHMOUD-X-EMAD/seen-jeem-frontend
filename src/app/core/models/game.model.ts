@@ -15,6 +15,11 @@ export interface GameSetupResponse {
   gameSessionId: string;
   roomCode: string;
   status: string;
+
+  currentTurnTeamId?: string | null;
+  currentTurnTeamName?: string | null;
+  currentTurnOrder?: number | null;
+
   teams: GameTeamDto[];
   categories: GameBoardCategoryDto[];
 }
@@ -24,7 +29,15 @@ export interface GameTeamDto {
   name: string;
   score: number;
   turnOrder: number;
-  helpOptions: string[];
+  helpOptions: TeamHelpOptionDto[];
+}
+
+export interface TeamHelpOptionDto {
+  id: string;
+  type: 'DoublePoints' | 'TwoAnswers' | 'StopPlayer' | string;
+  title: string;
+  isUsed: boolean;
+  usedAt?: string | null;
 }
 
 export interface GameBoardCategoryDto {
@@ -93,4 +106,19 @@ export interface AwardPointsResponse {
   pointsAwarded: number;
   status: string;
   teams: GameTurnTeamDto[];
+}
+
+export interface UseHelpOptionRequest {
+  teamId: string;
+  type: 'TwoAnswers' | 'StopPlayer' | string;
+  playerId?: string | null;
+}
+
+export interface UseHelpOptionResponse {
+  gameTurnId: string;
+  teamId: string;
+  type: string;
+  title: string;
+  isUsed: boolean;
+  usedAt: string;
 }
