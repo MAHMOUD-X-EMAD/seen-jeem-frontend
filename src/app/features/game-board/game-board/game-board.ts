@@ -22,7 +22,27 @@ const CATEGORY_IMAGE_MAP: Record<number, string> = {
   7: 'assets/category-images/movies.svg',
   8: 'assets/category-images/science.svg',
   9: 'assets/category-images/technology.svg',
-  10: 'assets/category-images/riddles.svg'
+  10: 'assets/category-images/riddles.svg',
+  11: 'assets/category-images/egypt_old_days.svg',
+12: 'assets/category-images/egyptian_cinema_stars.svg',
+13: 'assets/category-images/egyptian_music.svg',
+14: 'assets/category-images/egyptian_series.svg',
+15: 'assets/category-images/egyptian_proverbs.svg',
+16: 'assets/category-images/egyptian_food.svg',
+17: 'assets/category-images/egypt_governorates.svg',
+18: 'assets/category-images/egypt_landmarks.svg',
+19: 'assets/category-images/egyptian_figures.svg',
+20: 'assets/category-images/egyptian_dialect.svg',
+21: 'assets/category-images/egyptian_sports.svg',
+22: 'assets/category-images/inventions.svg',
+23: 'assets/category-images/human_body.svg',
+24: 'assets/category-images/animals_birds.svg',
+25: 'assets/category-images/plants_nature.svg',
+26: 'assets/category-images/space_astronomy.svg',
+27: 'assets/category-images/video_games.svg',
+28: 'assets/category-images/internet_social.svg',
+29: 'assets/category-images/brands_companies.svg',
+30: 'assets/category-images/cars_transport.svg'
 };
 
 @Component({
