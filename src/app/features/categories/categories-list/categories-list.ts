@@ -35,7 +35,13 @@ const CATEGORY_IMAGE_MAP: Record<number, string> = {
 27: 'assets/category-images/video_games.svg',
 28: 'assets/category-images/internet_social.svg',
 29: 'assets/category-images/brands_companies.svg',
-30: 'assets/category-images/cars_transport.svg'
+30: 'assets/category-images/cars_transport.svg',
+31: 'assets/category-images/alahly.svg',
+32: 'assets/category-images/egyptian_league.svg',
+33: 'assets/category-images/premier_league.svg',
+34: 'assets/category-images/ballon_dor.svg',
+35: 'assets/category-images/capitals.svg',
+36: 'assets/category-images/country_flags.svg'
 };
 
 @Component({

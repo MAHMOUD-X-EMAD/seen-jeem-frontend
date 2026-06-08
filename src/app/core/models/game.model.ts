@@ -122,3 +122,16 @@ export interface UseHelpOptionResponse {
   isUsed: boolean;
   usedAt: string;
 }
+
+export interface AdjustTeamScoreRequest {
+  teamId: string;
+  pointsDelta: 100 | -100;
+}
+
+export interface AdjustTeamScoreResponse {
+  gameSessionId: string;
+  teamId: string;
+  pointsDelta: number;
+  newScore: number;
+  teams: GameTurnTeamDto[];
+}

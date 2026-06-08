@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<defs><linearGradient id="g" x1="40" y1="40" x2="470" y2="470"><stop stop-color="#7F1D1D"/><stop offset="1" stop-color="#EF4444"/></linearGradient></defs>
+<rect width="512" height="512" rx="90" fill="#eaf8ff"/><rect x="28" y="28" width="456" height="456" rx="78" fill="url(#g)"/>
+<circle cx="410" cy="110" r="70" fill="white" opacity=".12"/><circle cx="92" cy="410" r="80" fill="white" opacity=".10"/>
+<text x="256" y="258" text-anchor="middle" font-size="150" font-family="Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif">🦅</text>
+<text x="256" y="380" text-anchor="middle" font-size="38" font-weight="900" fill="white" font-family="Arial, sans-serif">الأهلي</text>
+</svg>

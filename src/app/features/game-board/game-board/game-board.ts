@@ -42,7 +42,13 @@ const CATEGORY_IMAGE_MAP: Record<number, string> = {
 27: 'assets/category-images/video_games.svg',
 28: 'assets/category-images/internet_social.svg',
 29: 'assets/category-images/brands_companies.svg',
-30: 'assets/category-images/cars_transport.svg'
+30: 'assets/category-images/cars_transport.svg',
+31: 'assets/category-images/alahly.svg',
+32: 'assets/category-images/egyptian_league.svg',
+33: 'assets/category-images/premier_league.svg',
+34: 'assets/category-images/ballon_dor.svg',
+35: 'assets/category-images/capitals.svg',
+36: 'assets/category-images/country_flags.svg'
 };
 
 @Component({
@@ -277,6 +283,9 @@ export class GameBoardComponent implements OnInit, OnDestroy {
 
     this.detect();
   }
+
+
+
 
   chooseCorrectTeam(teamId: string | null): void {
     this.correctTeamId = teamId;
@@ -580,5 +589,40 @@ isStopPlayerUsed(): boolean {
     this.activeQuestion.secondTeam.id,
     'StopPlayer'
   )?.isUsed;
+}
+
+adjustTeamScore(teamId: string, pointsDelta: 100 | -100): void {
+  if (!this.game || this.actionLoading) {
+    return;
+  }
+
+  this.actionLoading = true;
+  this.turnErrorMessage = '';
+  this.errorMessage = '';
+  this.detect();
+
+  this.gameService.adjustScore(this.gameSessionId, {
+    teamId,
+    pointsDelta
+  }).subscribe({
+    next: (response) => {
+      this.updateScores(response.teams);
+
+      this.successMessage =
+        pointsDelta > 0
+          ? 'تم إضافة 100 نقطة.'
+          : 'تم خصم 100 نقطة.';
+
+      this.actionLoading = false;
+      this.detect();
+    },
+    error: (error) => {
+      this.turnErrorMessage =
+        error?.error || 'حصل خطأ أثناء تعديل النقاط.';
+
+      this.actionLoading = false;
+      this.detect();
+    }
+  });
 }
 }

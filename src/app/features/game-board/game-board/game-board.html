@@ -43,11 +43,31 @@
       <h4>{{ team.name }}</h4>
 
       <p class="turn-label" *ngIf="isCurrentTurnTeam(team.id)">
-        عليه الدور الآن
+        عليه الدور
       </p>
     </div>
 
-    <strong>{{ team.score }}</strong>
+    <div class="score-control">
+      <button
+        type="button"
+        class="score-btn minus"
+        [disabled]="actionLoading"
+        (click)="adjustTeamScore(team.id, -100)"
+      >
+        -
+      </button>
+
+      <strong>{{ team.score }}</strong>
+
+      <button
+        type="button"
+        class="score-btn plus"
+        [disabled]="actionLoading"
+        (click)="adjustTeamScore(team.id, 100)"
+      >
+        +
+      </button>
+    </div>
 
     <div class="helpers">
       <button
@@ -194,9 +214,17 @@
             </article>
             </div>
 
-        <div class="question-text">
-          {{ activeQuestion.questionText }}
-        </div>
+            <div class="question-media" *ngIf="activeQuestion.imageUrl">
+              <img
+                [src]="activeQuestion.imageUrl"
+                [alt]="activeQuestion.questionText"
+              />
+            </div>
+
+            <div class="question-text">
+              {{ activeQuestion.questionText }}
+            </div>
+
 
         <div class="timer-actions">
           <button type="button" (click)="pauseTimer()">إيقاف</button>
@@ -206,7 +234,7 @@
           <button type="button" (click)="startSecondTimer()">15 ثانية</button>
         </div>
 
-        <div class="answers-grid">
+        <!-- <div class="answers-grid">
           <label>
             <span>إجابة الفريق اللي عليه الدور</span>
             <textarea [(ngModel)]="mainTeamAnswerText"></textarea>
@@ -216,7 +244,7 @@
             <span>إجابة الفريق المنافس</span>
             <textarea [(ngModel)]="secondTeamAnswerText"></textarea>
           </label>
-        </div>
+        </div> -->
 
         <div *ngIf="turnErrorMessage" class="turn-error">
           {{ turnErrorMessage }}

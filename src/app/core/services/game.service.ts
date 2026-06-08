@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 
 import { environment } from '../../../environments';
 import {
+  AdjustTeamScoreRequest,
+  AdjustTeamScoreResponse,
   AwardPointsRequest,
   AwardPointsResponse,
   CreateGameRequest,
@@ -71,5 +73,15 @@ export class GameService {
         `${this.apiUrl}/${gameSessionId}/turns/${gameTurnId}/use-help-option`,
         request
     );
+    }
+
+    adjustScore(
+      gameSessionId: string,
+      request: AdjustTeamScoreRequest
+    ): Observable<AdjustTeamScoreResponse> {
+      return this.http.post<AdjustTeamScoreResponse>(
+        `${this.apiUrl}/${gameSessionId}/adjust-score`,
+        request
+      );
     }
 }
