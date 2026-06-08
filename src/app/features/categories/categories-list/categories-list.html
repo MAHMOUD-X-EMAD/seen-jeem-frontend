@@ -1,0 +1,100 @@
+<div class="categories-page">
+  <section class="hero-card">
+    <div>
+      <p class="eyebrow">إدارة المحتوى</p>
+      <h3>اختار فئات اللعبة</h3>
+      <p>
+        كل فئة تحتوي على أسئلة بدرجات صعوبة مختلفة. الصور هنا من الفرونت فقط بدون أي تعديل في الباك إند.
+      </p>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <span>{{ categories.length }}</span>
+        <small>فئة</small>
+      </div>
+
+      <div>
+        <span>{{ totalQuestions }}</span>
+        <small>سؤال</small>
+      </div>
+
+      <div>
+        <span>{{ activeCount }}</span>
+        <small>مفعلة</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="toolbar-card">
+    <div class="search-box">
+      <span>🔍</span>
+      <input
+        type="text"
+        placeholder="ابحث عن فئة..."
+        [(ngModel)]="searchTerm"
+      />
+    </div>
+
+    <button class="refresh-btn" type="button" (click)="loadCategories()">
+      تحديث
+    </button>
+  </section>
+
+  <div *ngIf="loading" class="categories-grid">
+    <div class="category-card skeleton-card" *ngFor="let item of [1,2,3,4,5,6,7,8]">
+      <div class="skeleton image-skeleton"></div>
+      <div class="skeleton title-skeleton"></div>
+      <div class="skeleton small-skeleton"></div>
+      <div class="skeleton pill-skeleton"></div>
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-card">
+    {{ errorMessage }}
+  </div>
+
+  <section *ngIf="!loading && !errorMessage" class="categories-grid">
+    <article
+      class="category-card"
+      *ngFor="let category of filteredCategories; trackBy: trackByCategoryId"
+      [class.selected]="selectedCategoryId === category.id"
+      [class.inactive]="!category.isActive"
+      (click)="selectCategory(category)"
+    >
+      <div class="card-glow"></div>
+
+      <div class="image-frame">
+        <img
+          [src]="getCategoryImage(category)"
+          [alt]="category.name"
+          loading="lazy"
+        />
+      </div>
+
+      <h4>{{ category.name }}</h4>
+
+      <p class="questions-count">
+        {{ category.questionsCount }} سؤال
+      </p>
+
+      <div class="card-footer">
+        <span
+          class="category-pill"
+          [class.active-pill]="category.isActive"
+          [class.inactive-pill]="!category.isActive"
+        >
+          {{ category.isActive ? 'مفعلة' : 'غير مفعلة' }}
+        </span>
+
+        <span class="arrow">←</span>
+      </div>
+    </article>
+  </section>
+
+  <div *ngIf="!loading && filteredCategories.length === 0" class="empty-state">
+    <div>🧐</div>
+    <h4>مفيش فئات مطابقة</h4>
+    <p>جرّب تبحث باسم مختلف.</p>
+  </div>
+</div>

@@ -1,0 +1,145 @@
+<div class="setup-page">
+  <section class="setup-hero">
+    <div>
+      <p class="eyebrow">بداية اللعبة</p>
+      <h3>إنشاء لعبة جديدة</h3>
+      <p>
+        اختار 6 فئات، اكتب أسماء الفريقين، وحدد وسائل المساعدة المتاحة في اللعبة.
+      </p>
+    </div>
+
+    <div class="selection-counter">
+      <strong>{{ selectedCount }}/6</strong>
+      <span>فئات مختارة</span>
+    </div>
+  </section>
+
+  <section class="setup-grid">
+    <div class="setup-panel">
+      <h4>أسماء الفرق</h4>
+
+      <div class="form-grid">
+        <label>
+          <span>الفريق الأول</span>
+          <input
+            type="text"
+            placeholder="مثال: النسور"
+            [(ngModel)]="teamOneName"
+          />
+        </label>
+
+        <label>
+          <span>الفريق الثاني</span>
+          <input
+            type="text"
+            placeholder="مثال: الصقور"
+            [(ngModel)]="teamTwoName"
+          />
+        </label>
+      </div>
+    </div>
+
+    <div class="setup-panel">
+      <h4>وسائل المساعدة</h4>
+
+      <div class="help-options">
+        <button
+          type="button"
+          class="help-card"
+          *ngFor="let option of helpOptions"
+          [class.selected]="option.selected"
+          (click)="toggleHelpOption(option)"
+        >
+          <span class="help-icon">{{ option.icon }}</span>
+
+          <span>
+            <strong>{{ option.title }}</strong>
+            <small>{{ option.description }}</small>
+          </span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="categories-section">
+    <div class="section-title">
+      <div>
+        <h4>اختار 6 فئات</h4>
+        <p>لازم كل فئة يكون فيها 2 سهل، 2 متوسط، 2 صعب على الأقل.</p>
+      </div>
+
+      <button type="button" class="reload-btn" (click)="loadCategories()">
+        تحديث
+      </button>
+    </div>
+
+    <div *ngIf="loadingCategories" class="loading-card">
+      جاري تحميل الفئات...
+    </div>
+
+    <div *ngIf="!loadingCategories" class="categories-grid">
+      <article
+        class="category-card"
+        *ngFor="let category of categories; trackBy: trackByCategoryId"
+        [class.selected]="isCategorySelected(category.id)"
+        (click)="toggleCategory(category)"
+      >
+        <div class="check-badge" *ngIf="isCategorySelected(category.id)">
+          ✓
+        </div>
+
+        <div class="image-frame">
+          <img [src]="getCategoryImage(category)" [alt]="category.name" />
+        </div>
+
+        <h5>{{ category.name }}</h5>
+
+        <p>{{ category.questionsCount }} سؤال</p>
+      </article>
+    </div>
+  </section>
+
+  <div *ngIf="errorMessage" class="alert alert-error">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+  </div>
+
+  <section *ngIf="createdGame" class="created-game-card">
+    <div>
+      <p>كود الغرفة</p>
+      <strong>{{ createdGame.roomCode }}</strong>
+    </div>
+
+    <div>
+      <p>حالة اللعبة</p>
+      <strong>{{ createdGame.status }}</strong>
+    </div>
+
+    <div>
+      <p>Game Session Id</p>
+      <code>{{ createdGame.gameSessionId }}</code>
+    </div>
+  </section>
+    <button
+    *ngIf="createdGame"
+    type="button"
+    class="create-btn"
+    (click)="goToBoard()"
+    >
+    دخول لوحة اللعب
+    </button>
+
+  <div class="actions-bar">
+    <button
+      type="button"
+      class="create-btn"
+      [disabled]="!canCreateGame"
+      (click)="createGame()"
+    >
+      {{ creatingGame ? 'جاري إنشاء اللعبة...' : 'إنشاء اللعبة' }}
+    </button>
+  </div>
+</div>

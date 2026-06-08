@@ -1,0 +1,40 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="58" y1="42" x2="454" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#FACC15"/>
+    </linearGradient>
+    <radialGradient id="shine" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(158 124) rotate(55) scale(420)">
+      <stop stop-color="white" stop-opacity="0.48"/>
+      <stop offset="0.42" stop-color="white" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#020617" flood-opacity="0.32"/>
+    </filter>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="92" fill="#EAF8FF"/>
+  <rect x="28" y="28" width="456" height="456" rx="78" fill="url(#bg)"/>
+  <rect x="28" y="28" width="456" height="456" rx="78" fill="url(#shine)"/>
+  <circle cx="92" cy="94" r="36" fill="white" opacity="0.16"/>
+  <circle cx="421" cy="126" r="54" fill="white" opacity="0.12"/>
+  <circle cx="405" cy="400" r="74" fill="white" opacity="0.10"/>
+  <path d="M70 386 C160 336 242 432 442 350" stroke="white" stroke-opacity="0.16" stroke-width="18" stroke-linecap="round"/>
+  <g filter="url(#shadow)">
+    
+<path d="M256 112 C194 112 150 156 150 214 C150 252 171 282 198 302 C214 314 222 330 222 350 H290 C290 330 298 314 314 302 C341 282 362 252 362 214 C362 156 318 112 256 112Z" fill="white"/>
+<path d="M218 360 H294" stroke="white" stroke-width="20" stroke-linecap="round"/>
+<path d="M230 394 H282" stroke="white" stroke-width="18" stroke-linecap="round"/>
+<path d="M248 152 C218 162 202 186 204 214" stroke="#FACC15" stroke-width="14" stroke-linecap="round"/>
+<path d="M118 214 H86" stroke="white" stroke-width="16" stroke-linecap="round" opacity="0.74"/>
+<path d="M426 214 H394" stroke="white" stroke-width="16" stroke-linecap="round" opacity="0.74"/>
+<path d="M150 120 L126 96" stroke="white" stroke-width="16" stroke-linecap="round" opacity="0.74"/>
+<path d="M362 120 L386 96" stroke="white" stroke-width="16" stroke-linecap="round" opacity="0.74"/>
+<circle cx="256" cy="216" r="34" fill="#FACC15" opacity="0.9"/>
+
+  </g>
+</svg>

@@ -1,0 +1,207 @@
+<div class="board-page">
+  <div *ngIf="loading" class="loading-card">
+    جاري تحميل لوحة اللعبة...
+  </div>
+
+  <div *ngIf="errorMessage" class="alert-error">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="turnErrorMessage && !activeQuestion" class="alert-error">
+    {{ turnErrorMessage }}
+  </div>
+
+  <div *ngIf="successMessage" class="alert-success">
+    {{ successMessage }}
+  </div>
+
+  <ng-container *ngIf="!loading && game">
+    <section class="board-header">
+      <div>
+        <p class="eyebrow">لوحة اللعب</p>
+        <h3>سين جيم</h3>
+        <p>كود الغرفة: <strong>{{ game.roomCode }}</strong></p>
+      </div>
+
+      <button
+        type="button"
+        class="refresh-btn"
+        [disabled]="actionLoading || !!activeQuestion"
+        (click)="loadBoard()"
+      >
+        تحديث
+      </button>
+    </section>
+
+    <section class="teams-score">
+      <article class="team-card" *ngFor="let team of game.teams">
+        <div>
+          <span>الفريق {{ team.turnOrder }}</span>
+          <h4>{{ team.name }}</h4>
+        </div>
+
+        <strong>{{ team.score }}</strong>
+
+        <div class="helpers">
+          <small *ngFor="let help of team.helpOptions">
+            {{ help }}
+          </small>
+        </div>
+      </article>
+    </section>
+
+    <div *ngIf="actionLoading && !activeQuestion" class="loading-card">
+      جاري فتح السؤال...
+    </div>
+
+    <section class="game-board-grid">
+      <article
+        class="category-column"
+        *ngFor="let category of game.categories; trackBy: trackByCategoryId"
+      >
+        <div class="category-header">
+          <div class="image-frame">
+            <img
+              [src]="getCategoryImage(category.categoryId)"
+              [alt]="category.categoryName"
+            />
+          </div>
+
+          <h4>{{ category.categoryName }}</h4>
+        </div>
+
+        <div class="questions-list">
+          <button
+            type="button"
+            class="question-tile"
+            *ngFor="let question of category.questions; trackBy: trackByQuestionId"
+            [class.used]="question.isUsed"
+            [class.easy]="question.points === 200"
+            [class.medium]="question.points === 400"
+            [class.hard]="question.points === 600"
+            [disabled]="question.isUsed || !!activeQuestion || actionLoading"
+            (click)="openQuestion(category, question)"
+          >
+            <span>{{ question.points }}</span>
+            <small>{{ question.difficulty }}</small>
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <!-- شاشة السؤال -->
+    <div
+      class="modal-backdrop question-modal-backdrop"
+      *ngIf="activeQuestion"
+    >
+      <section class="question-modal">
+        <div class="question-top">
+          <div>
+            <p class="eyebrow">{{ activeQuestion.categoryName }}</p>
+            <h3>{{ activeQuestion.finalPoints }} نقطة</h3>
+          </div>
+
+          <div class="timer-box" [class.danger]="remainingSeconds <= 10">
+            <span>{{ timerLabel }}</span>
+            <strong>{{ remainingSeconds }}</strong>
+          </div>
+        </div>
+
+        <div class="playing-teams">
+          <div>
+            <small>الفريق اللي عليه الدور</small>
+            <strong>{{ activeQuestion.mainTeam.name }}</strong>
+          </div>
+
+          <div>
+            <small>الفريق المنافس</small>
+            <strong>{{ activeQuestion.secondTeam.name }}</strong>
+          </div>
+        </div>
+
+        <div class="question-text">
+          {{ activeQuestion.questionText }}
+        </div>
+
+        <div class="timer-actions">
+          <button type="button" (click)="pauseTimer()">إيقاف</button>
+          <button type="button" (click)="resumeTimer()">تشغيل</button>
+          <button type="button" (click)="resetCurrentTimer()">إعادة</button>
+          <button type="button" (click)="startMainTimer()">90 ثانية</button>
+          <button type="button" (click)="startSecondTimer()">15 ثانية</button>
+        </div>
+
+        <div class="answers-grid">
+          <label>
+            <span>إجابة الفريق اللي عليه الدور</span>
+            <textarea [(ngModel)]="mainTeamAnswerText"></textarea>
+          </label>
+
+          <label>
+            <span>إجابة الفريق المنافس</span>
+            <textarea [(ngModel)]="secondTeamAnswerText"></textarea>
+          </label>
+        </div>
+
+        <div *ngIf="turnErrorMessage" class="turn-error">
+          {{ turnErrorMessage }}
+        </div>
+
+        <div class="reveal-section" *ngIf="revealedAnswer">
+          <p>الإجابة الصحيحة</p>
+          <strong>{{ revealedAnswer.correctAnswer }}</strong>
+        </div>
+
+        <div class="winner-section" *ngIf="revealedAnswer">
+          <p>مين جاوب صح؟</p>
+
+          <div class="winner-buttons">
+            <button
+              type="button"
+              [class.selected]="correctTeamId === activeQuestion.mainTeam.id"
+              (click)="chooseCorrectTeam(activeQuestion.mainTeam.id)"
+            >
+              {{ activeQuestion.mainTeam.name }}
+            </button>
+
+            <button
+              type="button"
+              [class.selected]="correctTeamId === activeQuestion.secondTeam.id"
+              (click)="chooseCorrectTeam(activeQuestion.secondTeam.id)"
+            >
+              {{ activeQuestion.secondTeam.name }}
+            </button>
+
+            <button
+              type="button"
+              [class.selected]="correctTeamId === null"
+              (click)="chooseCorrectTeam(null)"
+            >
+              محدش
+            </button>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button
+            type="button"
+            class="secondary-action"
+            [disabled]="actionLoading || !!revealedAnswer"
+            (click)="revealAnswer()"
+          >
+            {{ revealedAnswer ? 'تم كشف الإجابة' : 'كشف الإجابة' }}
+          </button>
+
+          <button
+            type="button"
+            class="main-action-btn"
+            [disabled]="actionLoading || !revealedAnswer"
+            (click)="awardPoints()"
+          >
+            {{ actionLoading ? 'جاري الحفظ...' : 'إنهاء الدور وإضافة النقاط' }}
+          </button>
+        </div>
+      </section>
+    </div>
+  </ng-container>
+</div>
