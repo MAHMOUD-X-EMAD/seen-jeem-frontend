@@ -1,0 +1,1202 @@
+[
+  {
+    "number": 1,
+    "brand": "Carrefour",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "carrefour",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/carrefour.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_001.svg",
+    "outputFile": "brand_extra_001.svg"
+  },
+  {
+    "number": 2,
+    "brand": "Decathlon",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "decathlon",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/decathlon.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_002.svg",
+    "outputFile": "brand_extra_002.svg"
+  },
+  {
+    "number": 3,
+    "brand": "FedEx",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "fedex",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/fedex.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_003.svg",
+    "outputFile": "brand_extra_003.svg"
+  },
+  {
+    "number": 4,
+    "brand": "DHL",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "dhl",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/dhl.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_004.svg",
+    "outputFile": "brand_extra_004.svg"
+  },
+  {
+    "number": 5,
+    "brand": "UPS",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "ups",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/ups.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_005.svg",
+    "outputFile": "brand_extra_005.svg"
+  },
+  {
+    "number": 6,
+    "brand": "Shell",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "shell",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/shell.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_006.svg",
+    "outputFile": "brand_extra_006.svg"
+  },
+  {
+    "number": 7,
+    "brand": "BP",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "bp",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/bp.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_007.svg",
+    "outputFile": "brand_extra_007.svg"
+  },
+  {
+    "number": 8,
+    "brand": "Red Bull",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "redbull",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/redbull.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_008.svg",
+    "outputFile": "brand_extra_008.svg"
+  },
+  {
+    "number": 9,
+    "brand": "LEGO",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "lego",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/lego.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_009.svg",
+    "outputFile": "brand_extra_009.svg"
+  },
+  {
+    "number": 10,
+    "brand": "H&M",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "hm",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/hm.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_010.svg",
+    "outputFile": "brand_extra_010.svg"
+  },
+  {
+    "number": 11,
+    "brand": "Uniqlo",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "uniqlo",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/uniqlo.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_011.svg",
+    "outputFile": "brand_extra_011.svg"
+  },
+  {
+    "number": 12,
+    "brand": "Converse",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "converse",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/converse.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_012.svg",
+    "outputFile": "brand_extra_012.svg"
+  },
+  {
+    "number": 13,
+    "brand": "Vans",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "vans",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/vans.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_013.svg",
+    "outputFile": "brand_extra_013.svg"
+  },
+  {
+    "number": 14,
+    "brand": "Crocs",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "crocs",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/crocs.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_014.svg",
+    "outputFile": "brand_extra_014.svg"
+  },
+  {
+    "number": 15,
+    "brand": "Chanel",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "chanel",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/chanel.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_015.svg",
+    "outputFile": "brand_extra_015.svg"
+  },
+  {
+    "number": 16,
+    "brand": "Dior",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "dior",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/dior.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_016.svg",
+    "outputFile": "brand_extra_016.svg"
+  },
+  {
+    "number": 17,
+    "brand": "Prada",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "prada",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/prada.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_017.svg",
+    "outputFile": "brand_extra_017.svg"
+  },
+  {
+    "number": 18,
+    "brand": "Versace",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "versace",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/versace.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_018.svg",
+    "outputFile": "brand_extra_018.svg"
+  },
+  {
+    "number": 19,
+    "brand": "Hermès",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "hermes",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/hermes.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_019.svg",
+    "outputFile": "brand_extra_019.svg"
+  },
+  {
+    "number": 20,
+    "brand": "Balenciaga",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "balenciaga",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/balenciaga.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_020.svg",
+    "outputFile": "brand_extra_020.svg"
+  },
+  {
+    "number": 21,
+    "brand": "Burberry",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "burberry",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/burberry.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_021.svg",
+    "outputFile": "brand_extra_021.svg"
+  },
+  {
+    "number": 22,
+    "brand": "Calvin Klein",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "calvinklein",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/calvinklein.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_022.svg",
+    "outputFile": "brand_extra_022.svg"
+  },
+  {
+    "number": 23,
+    "brand": "Tommy Hilfiger",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "tommyhilfiger",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/tommyhilfiger.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_023.svg",
+    "outputFile": "brand_extra_023.svg"
+  },
+  {
+    "number": 24,
+    "brand": "Costco",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "costco",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/costco.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_024.svg",
+    "outputFile": "brand_extra_024.svg"
+  },
+  {
+    "number": 25,
+    "brand": "Target",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "target",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/target.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_025.svg",
+    "outputFile": "brand_extra_025.svg"
+  },
+  {
+    "number": 26,
+    "brand": "Best Buy",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "bestbuy",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/bestbuy.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_026.svg",
+    "outputFile": "brand_extra_026.svg"
+  },
+  {
+    "number": 27,
+    "brand": "Taco Bell",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "tacobell",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/tacobell.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_027.svg",
+    "outputFile": "brand_extra_027.svg"
+  },
+  {
+    "number": 28,
+    "brand": "Wendy's",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "wendys",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/wendys.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_028.svg",
+    "outputFile": "brand_extra_028.svg"
+  },
+  {
+    "number": 29,
+    "brand": "Dunkin",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "dunkin",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/dunkin.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_029.svg",
+    "outputFile": "brand_extra_029.svg"
+  },
+  {
+    "number": 30,
+    "brand": "Baskin-Robbins",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "baskinrobbins",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/baskinrobbins.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_030.svg",
+    "outputFile": "brand_extra_030.svg"
+  },
+  {
+    "number": 31,
+    "brand": "Tim Hortons",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "timhortons",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/timhortons.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_031.svg",
+    "outputFile": "brand_extra_031.svg"
+  },
+  {
+    "number": 32,
+    "brand": "Hyundai",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "hyundai",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/hyundai.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_032.svg",
+    "outputFile": "brand_extra_032.svg"
+  },
+  {
+    "number": 33,
+    "brand": "Kia",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "kia",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/kia.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_033.svg",
+    "outputFile": "brand_extra_033.svg"
+  },
+  {
+    "number": 34,
+    "brand": "Nissan",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "nissan",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/nissan.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_034.svg",
+    "outputFile": "brand_extra_034.svg"
+  },
+  {
+    "number": 35,
+    "brand": "Renault",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "renault",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/renault.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_035.svg",
+    "outputFile": "brand_extra_035.svg"
+  },
+  {
+    "number": 36,
+    "brand": "Peugeot",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "peugeot",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/peugeot.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_036.svg",
+    "outputFile": "brand_extra_036.svg"
+  },
+  {
+    "number": 37,
+    "brand": "Citroën",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "citroen",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/citroen.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_037.svg",
+    "outputFile": "brand_extra_037.svg"
+  },
+  {
+    "number": 38,
+    "brand": "Volvo",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "volvo",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/volvo.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_038.svg",
+    "outputFile": "brand_extra_038.svg"
+  },
+  {
+    "number": 39,
+    "brand": "Mazda",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "mazda",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/mazda.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_039.svg",
+    "outputFile": "brand_extra_039.svg"
+  },
+  {
+    "number": 40,
+    "brand": "Mitsubishi",
+    "difficulty": 1,
+    "difficultyName": "Easy",
+    "simpleIconsSlug": "mitsubishi",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/mitsubishi.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_040.svg",
+    "outputFile": "brand_extra_040.svg"
+  },
+  {
+    "number": 41,
+    "brand": "Suzuki",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "suzuki",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/suzuki.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_041.svg",
+    "outputFile": "brand_extra_041.svg"
+  },
+  {
+    "number": 42,
+    "brand": "Škoda",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "skoda",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/skoda.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_042.svg",
+    "outputFile": "brand_extra_042.svg"
+  },
+  {
+    "number": 43,
+    "brand": "SEAT",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "seat",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/seat.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_043.svg",
+    "outputFile": "brand_extra_043.svg"
+  },
+  {
+    "number": 44,
+    "brand": "Cadillac",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "cadillac",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/cadillac.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_044.svg",
+    "outputFile": "brand_extra_044.svg"
+  },
+  {
+    "number": 45,
+    "brand": "Chevrolet",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "chevrolet",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/chevrolet.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_045.svg",
+    "outputFile": "brand_extra_045.svg"
+  },
+  {
+    "number": 46,
+    "brand": "Jeep",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "jeep",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/jeep.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_046.svg",
+    "outputFile": "brand_extra_046.svg"
+  },
+  {
+    "number": 47,
+    "brand": "Land Rover",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "landrover",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/landrover.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_047.svg",
+    "outputFile": "brand_extra_047.svg"
+  },
+  {
+    "number": 48,
+    "brand": "Jaguar",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "jaguar",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/jaguar.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_048.svg",
+    "outputFile": "brand_extra_048.svg"
+  },
+  {
+    "number": 49,
+    "brand": "Opel",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "opel",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/opel.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_049.svg",
+    "outputFile": "brand_extra_049.svg"
+  },
+  {
+    "number": 50,
+    "brand": "Subaru",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "subaru",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/subaru.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_050.svg",
+    "outputFile": "brand_extra_050.svg"
+  },
+  {
+    "number": 51,
+    "brand": "BYD",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "byd",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/byd.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_051.svg",
+    "outputFile": "brand_extra_051.svg"
+  },
+  {
+    "number": 52,
+    "brand": "Atlassian",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "atlassian",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/atlassian.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_052.svg",
+    "outputFile": "brand_extra_052.svg"
+  },
+  {
+    "number": 53,
+    "brand": "Bitbucket",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "bitbucket",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/bitbucket.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_053.svg",
+    "outputFile": "brand_extra_053.svg"
+  },
+  {
+    "number": 54,
+    "brand": "Confluence",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "confluence",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/confluence.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_054.svg",
+    "outputFile": "brand_extra_054.svg"
+  },
+  {
+    "number": 55,
+    "brand": "Linux",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "linux",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/linux.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_055.svg",
+    "outputFile": "brand_extra_055.svg"
+  },
+  {
+    "number": 56,
+    "brand": "Ubuntu",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "ubuntu",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/ubuntu.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_056.svg",
+    "outputFile": "brand_extra_056.svg"
+  },
+  {
+    "number": 57,
+    "brand": "Debian",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "debian",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/debian.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_057.svg",
+    "outputFile": "brand_extra_057.svg"
+  },
+  {
+    "number": 58,
+    "brand": "Fedora",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "fedora",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/fedora.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_058.svg",
+    "outputFile": "brand_extra_058.svg"
+  },
+  {
+    "number": 59,
+    "brand": "Kali Linux",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "kalilinux",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/kalilinux.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_059.svg",
+    "outputFile": "brand_extra_059.svg"
+  },
+  {
+    "number": 60,
+    "brand": "Raspberry Pi",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "raspberrypi",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/raspberrypi.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_060.svg",
+    "outputFile": "brand_extra_060.svg"
+  },
+  {
+    "number": 61,
+    "brand": "Arduino",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "arduino",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/arduino.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_061.svg",
+    "outputFile": "brand_extra_061.svg"
+  },
+  {
+    "number": 62,
+    "brand": "jQuery",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "jquery",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/jquery.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_062.svg",
+    "outputFile": "brand_extra_062.svg"
+  },
+  {
+    "number": 63,
+    "brand": "Bootstrap",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "bootstrap",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/bootstrap.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_063.svg",
+    "outputFile": "brand_extra_063.svg"
+  },
+  {
+    "number": 64,
+    "brand": "Tailwind CSS",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "tailwindcss",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/tailwindcss.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_064.svg",
+    "outputFile": "brand_extra_064.svg"
+  },
+  {
+    "number": 65,
+    "brand": "Ionic",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "ionic",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/ionic.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_065.svg",
+    "outputFile": "brand_extra_065.svg"
+  },
+  {
+    "number": 66,
+    "brand": "Expo",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "expo",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/expo.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_066.svg",
+    "outputFile": "brand_extra_066.svg"
+  },
+  {
+    "number": 67,
+    "brand": "Svelte",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "svelte",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/svelte.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_067.svg",
+    "outputFile": "brand_extra_067.svg"
+  },
+  {
+    "number": 68,
+    "brand": "Deno",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "deno",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/deno.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_068.svg",
+    "outputFile": "brand_extra_068.svg"
+  },
+  {
+    "number": 69,
+    "brand": "Bun",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "bun",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/bun.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_069.svg",
+    "outputFile": "brand_extra_069.svg"
+  },
+  {
+    "number": 70,
+    "brand": "FastAPI",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "fastapi",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/fastapi.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_070.svg",
+    "outputFile": "brand_extra_070.svg"
+  },
+  {
+    "number": 71,
+    "brand": "OpenCV",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "opencv",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/opencv.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_071.svg",
+    "outputFile": "brand_extra_071.svg"
+  },
+  {
+    "number": 72,
+    "brand": "Pandas",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "pandas",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/pandas.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_072.svg",
+    "outputFile": "brand_extra_072.svg"
+  },
+  {
+    "number": 73,
+    "brand": "NumPy",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "numpy",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/numpy.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_073.svg",
+    "outputFile": "brand_extra_073.svg"
+  },
+  {
+    "number": 74,
+    "brand": "SciPy",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "scipy",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/scipy.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_074.svg",
+    "outputFile": "brand_extra_074.svg"
+  },
+  {
+    "number": 75,
+    "brand": "scikit-learn",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "scikitlearn",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/scikitlearn.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_075.svg",
+    "outputFile": "brand_extra_075.svg"
+  },
+  {
+    "number": 76,
+    "brand": "Hugging Face",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "huggingface",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/huggingface.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_076.svg",
+    "outputFile": "brand_extra_076.svg"
+  },
+  {
+    "number": 77,
+    "brand": "OpenAI",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "openai",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/openai.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_077.svg",
+    "outputFile": "brand_extra_077.svg"
+  },
+  {
+    "number": 78,
+    "brand": "Meta Quest",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "metaquest",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/metaquest.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_078.svg",
+    "outputFile": "brand_extra_078.svg"
+  },
+  {
+    "number": 79,
+    "brand": "Acer",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "acer",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/acer.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_079.svg",
+    "outputFile": "brand_extra_079.svg"
+  },
+  {
+    "number": 80,
+    "brand": "ASUS",
+    "difficulty": 2,
+    "difficultyName": "Medium",
+    "simpleIconsSlug": "asus",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/asus.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_080.svg",
+    "outputFile": "brand_extra_080.svg"
+  },
+  {
+    "number": 81,
+    "brand": "Algolia",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "algolia",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/algolia.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_081.svg",
+    "outputFile": "brand_extra_081.svg"
+  },
+  {
+    "number": 82,
+    "brand": "Anaconda",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "anaconda",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/anaconda.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_082.svg",
+    "outputFile": "brand_extra_082.svg"
+  },
+  {
+    "number": 83,
+    "brand": "Apache Airflow",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "apacheairflow",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/apacheairflow.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_083.svg",
+    "outputFile": "brand_extra_083.svg"
+  },
+  {
+    "number": 84,
+    "brand": "Apache Ant",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "apacheant",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/apacheant.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_084.svg",
+    "outputFile": "brand_extra_084.svg"
+  },
+  {
+    "number": 85,
+    "brand": "Apache Cassandra",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "apachecassandra",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/apachecassandra.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_085.svg",
+    "outputFile": "brand_extra_085.svg"
+  },
+  {
+    "number": 86,
+    "brand": "Apache Flink",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "apacheflink",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/apacheflink.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_086.svg",
+    "outputFile": "brand_extra_086.svg"
+  },
+  {
+    "number": 87,
+    "brand": "Apache Hadoop",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "apachehadoop",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/apachehadoop.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_087.svg",
+    "outputFile": "brand_extra_087.svg"
+  },
+  {
+    "number": 88,
+    "brand": "Apache Hive",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "apachehive",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/apachehive.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_088.svg",
+    "outputFile": "brand_extra_088.svg"
+  },
+  {
+    "number": 89,
+    "brand": "Apache JMeter",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "apachejmeter",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/apachejmeter.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_089.svg",
+    "outputFile": "brand_extra_089.svg"
+  },
+  {
+    "number": 90,
+    "brand": "Apache Maven",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "apachemaven",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/apachemaven.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_090.svg",
+    "outputFile": "brand_extra_090.svg"
+  },
+  {
+    "number": 91,
+    "brand": "Apache Spark",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "apachespark",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/apachespark.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_091.svg",
+    "outputFile": "brand_extra_091.svg"
+  },
+  {
+    "number": 92,
+    "brand": "Apollo GraphQL",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "apollographql",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/apollographql.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_092.svg",
+    "outputFile": "brand_extra_092.svg"
+  },
+  {
+    "number": 93,
+    "brand": "CircleCI",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "circleci",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/circleci.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_093.svg",
+    "outputFile": "brand_extra_093.svg"
+  },
+  {
+    "number": 94,
+    "brand": "CodePen",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "codepen",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/codepen.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_094.svg",
+    "outputFile": "brand_extra_094.svg"
+  },
+  {
+    "number": 95,
+    "brand": "Databricks",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "databricks",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/databricks.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_095.svg",
+    "outputFile": "brand_extra_095.svg"
+  },
+  {
+    "number": 96,
+    "brand": "Docusaurus",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "docusaurus",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/docusaurus.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_096.svg",
+    "outputFile": "brand_extra_096.svg"
+  },
+  {
+    "number": 97,
+    "brand": "ESLint",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "eslint",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/eslint.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_097.svg",
+    "outputFile": "brand_extra_097.svg"
+  },
+  {
+    "number": 98,
+    "brand": "Gitea",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "gitea",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gitea.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_098.svg",
+    "outputFile": "brand_extra_098.svg"
+  },
+  {
+    "number": 99,
+    "brand": "GNU",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "gnu",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/gnu.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_099.svg",
+    "outputFile": "brand_extra_099.svg"
+  },
+  {
+    "number": 100,
+    "brand": "htmx",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "htmx",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/htmx.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_100.svg",
+    "outputFile": "brand_extra_100.svg"
+  },
+  {
+    "number": 101,
+    "brand": "Jasmine",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "jasmine",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/jasmine.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_101.svg",
+    "outputFile": "brand_extra_101.svg"
+  },
+  {
+    "number": 102,
+    "brand": "JetBrains",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "jetbrains",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/jetbrains.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_102.svg",
+    "outputFile": "brand_extra_102.svg"
+  },
+  {
+    "number": 103,
+    "brand": "Joomla",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "joomla",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/joomla.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_103.svg",
+    "outputFile": "brand_extra_103.svg"
+  },
+  {
+    "number": 104,
+    "brand": "JSON Web Tokens",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "jsonwebtokens",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/jsonwebtokens.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_104.svg",
+    "outputFile": "brand_extra_104.svg"
+  },
+  {
+    "number": 105,
+    "brand": "Keycloak",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "keycloak",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/keycloak.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_105.svg",
+    "outputFile": "brand_extra_105.svg"
+  },
+  {
+    "number": 106,
+    "brand": "Lua",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "lua",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/lua.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_106.svg",
+    "outputFile": "brand_extra_106.svg"
+  },
+  {
+    "number": 107,
+    "brand": "Material Design",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "materialdesign",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/materialdesign.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_107.svg",
+    "outputFile": "brand_extra_107.svg"
+  },
+  {
+    "number": 108,
+    "brand": "npm",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "npm",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/npm.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_108.svg",
+    "outputFile": "brand_extra_108.svg"
+  },
+  {
+    "number": 109,
+    "brand": "NuGet",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "nuget",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/nuget.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_109.svg",
+    "outputFile": "brand_extra_109.svg"
+  },
+  {
+    "number": 110,
+    "brand": "Playwright",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "playwright",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/playwright.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_110.svg",
+    "outputFile": "brand_extra_110.svg"
+  },
+  {
+    "number": 111,
+    "brand": "PowerShell",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "powershell",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/powershell.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_111.svg",
+    "outputFile": "brand_extra_111.svg"
+  },
+  {
+    "number": 112,
+    "brand": "Qt",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "qt",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/qt.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_112.svg",
+    "outputFile": "brand_extra_112.svg"
+  },
+  {
+    "number": 113,
+    "brand": "Ruby",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "ruby",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/ruby.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_113.svg",
+    "outputFile": "brand_extra_113.svg"
+  },
+  {
+    "number": 114,
+    "brand": "Ruby on Rails",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "rubyonrails",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/rubyonrails.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_114.svg",
+    "outputFile": "brand_extra_114.svg"
+  },
+  {
+    "number": 115,
+    "brand": "Sentry",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "sentry",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/sentry.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_115.svg",
+    "outputFile": "brand_extra_115.svg"
+  },
+  {
+    "number": 116,
+    "brand": "Serverless",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "serverless",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/serverless.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_116.svg",
+    "outputFile": "brand_extra_116.svg"
+  },
+  {
+    "number": 117,
+    "brand": "Storybook",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "storybook",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/storybook.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_117.svg",
+    "outputFile": "brand_extra_117.svg"
+  },
+  {
+    "number": 118,
+    "brand": "Yarn",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "yarn",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/yarn.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_118.svg",
+    "outputFile": "brand_extra_118.svg"
+  },
+  {
+    "number": 119,
+    "brand": "pnpm",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "pnpm",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/pnpm.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_119.svg",
+    "outputFile": "brand_extra_119.svg"
+  },
+  {
+    "number": 120,
+    "brand": "WebAssembly",
+    "difficulty": 3,
+    "difficultyName": "Hard",
+    "simpleIconsSlug": "webassembly",
+    "cdnUrl": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/webassembly.svg",
+    "localPath": "assets/question-images/brand-logos-extra/brand_extra_120.svg",
+    "outputFile": "brand_extra_120.svg"
+  }
+]

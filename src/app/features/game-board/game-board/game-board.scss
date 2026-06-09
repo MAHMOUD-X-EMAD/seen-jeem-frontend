@@ -989,3 +989,83 @@
     grid-template-columns: 1fr;
   }
 }
+.question-modal-backdrop {
+  padding: 0;
+  place-items: stretch;
+  background: color-mix(in srgb, #020617, transparent 12%);
+}
+
+.question-modal-backdrop .question-modal {
+  width: 80vw;
+  height: 100vh;
+  max-height: 100vh;
+  border-radius: 0;
+  overflow: auto;
+  padding: 34px 46px;
+  display: flex;
+  flex-direction: column;
+}
+
+.question-modal-backdrop .question-top {
+  flex-shrink: 0;
+}
+
+.question-modal-backdrop .playing-teams,
+.question-modal-backdrop .active-question-helpers,
+.question-modal-backdrop .timer-actions,
+.question-modal-backdrop .answers-grid,
+.question-modal-backdrop .modal-actions {
+  flex-shrink: 0;
+}
+
+.question-modal-backdrop .question-text {
+  flex-shrink: 0;
+  font-size: clamp(28px, 3vw, 46px);
+  padding: 34px;
+}
+
+.question-modal-backdrop .question-media {
+  flex: 1;
+  min-height: 260px;
+  max-height: 48vh;
+  margin: 16px 0;
+}
+
+.question-modal-backdrop .question-media img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.question-modal-backdrop .timer-box {
+  min-width: 170px;
+}
+
+.question-modal-backdrop .timer-box strong {
+  font-size: clamp(46px, 5vw, 74px);
+}
+
+.question-modal-backdrop .reveal-section strong {
+  font-size: clamp(28px, 3vw, 44px);
+}
+
+@media (max-width: 900px) {
+  .question-modal-backdrop .question-modal {
+    padding: 22px;
+  }
+
+  .question-modal-backdrop .question-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .question-modal-backdrop .playing-teams,
+  .question-modal-backdrop .answers-grid,
+  .question-modal-backdrop .active-question-helpers {
+    grid-template-columns: 1fr;
+  }
+
+  .question-modal-backdrop .question-media {
+    max-height: 38vh;
+  }
+}

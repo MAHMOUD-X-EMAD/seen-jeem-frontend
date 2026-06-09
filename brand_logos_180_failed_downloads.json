@@ -1,0 +1,44 @@
+﻿[
+    {
+        "number":  32,
+        "brand":  "Subway",
+        "slug":  "subway",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/subway.svg",
+        "outputFile":  "brand_032.svg"
+    },
+    {
+        "number":  33,
+        "brand":  "Domino\u0027s",
+        "slug":  "dominos",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/dominos.svg",
+        "outputFile":  "brand_033.svg"
+    },
+    {
+        "number":  34,
+        "brand":  "Pizza Hut",
+        "slug":  "pizzahut",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/pizzahut.svg",
+        "outputFile":  "brand_034.svg"
+    },
+    {
+        "number":  84,
+        "brand":  "Monday.com",
+        "slug":  "mondaydotcom",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/mondaydotcom.svg",
+        "outputFile":  "brand_084.svg"
+    },
+    {
+        "number":  106,
+        "brand":  "Disney+",
+        "slug":  "disneyplus",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/disneyplus.svg",
+        "outputFile":  "brand_106.svg"
+    },
+    {
+        "number":  117,
+        "brand":  "Skyscanner",
+        "slug":  "skyscanner",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/skyscanner.svg",
+        "outputFile":  "brand_117.svg"
+    }
+]

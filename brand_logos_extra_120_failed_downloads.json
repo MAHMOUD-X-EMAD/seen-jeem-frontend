@@ -1,0 +1,156 @@
+﻿[
+    {
+        "number":  2,
+        "brand":  "Decathlon",
+        "slug":  "decathlon",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/decathlon.svg",
+        "outputFile":  "brand_extra_002.svg"
+    },
+    {
+        "number":  7,
+        "brand":  "BP",
+        "slug":  "bp",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/bp.svg",
+        "outputFile":  "brand_extra_007.svg"
+    },
+    {
+        "number":  9,
+        "brand":  "LEGO",
+        "slug":  "lego",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/lego.svg",
+        "outputFile":  "brand_extra_009.svg"
+    },
+    {
+        "number":  10,
+        "brand":  "H\u0026M",
+        "slug":  "hm",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/hm.svg",
+        "outputFile":  "brand_extra_010.svg"
+    },
+    {
+        "number":  12,
+        "brand":  "Converse",
+        "slug":  "converse",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/converse.svg",
+        "outputFile":  "brand_extra_012.svg"
+    },
+    {
+        "number":  13,
+        "brand":  "Vans",
+        "slug":  "vans",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/vans.svg",
+        "outputFile":  "brand_extra_013.svg"
+    },
+    {
+        "number":  14,
+        "brand":  "Crocs",
+        "slug":  "crocs",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/crocs.svg",
+        "outputFile":  "brand_extra_014.svg"
+    },
+    {
+        "number":  15,
+        "brand":  "Chanel",
+        "slug":  "chanel",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/chanel.svg",
+        "outputFile":  "brand_extra_015.svg"
+    },
+    {
+        "number":  17,
+        "brand":  "Prada",
+        "slug":  "prada",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/prada.svg",
+        "outputFile":  "brand_extra_017.svg"
+    },
+    {
+        "number":  18,
+        "brand":  "Versace",
+        "slug":  "versace",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/versace.svg",
+        "outputFile":  "brand_extra_018.svg"
+    },
+    {
+        "number":  20,
+        "brand":  "Balenciaga",
+        "slug":  "balenciaga",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/balenciaga.svg",
+        "outputFile":  "brand_extra_020.svg"
+    },
+    {
+        "number":  21,
+        "brand":  "Burberry",
+        "slug":  "burberry",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/burberry.svg",
+        "outputFile":  "brand_extra_021.svg"
+    },
+    {
+        "number":  22,
+        "brand":  "Calvin Klein",
+        "slug":  "calvinklein",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/calvinklein.svg",
+        "outputFile":  "brand_extra_022.svg"
+    },
+    {
+        "number":  23,
+        "brand":  "Tommy Hilfiger",
+        "slug":  "tommyhilfiger",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/tommyhilfiger.svg",
+        "outputFile":  "brand_extra_023.svg"
+    },
+    {
+        "number":  24,
+        "brand":  "Costco",
+        "slug":  "costco",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/costco.svg",
+        "outputFile":  "brand_extra_024.svg"
+    },
+    {
+        "number":  26,
+        "brand":  "Best Buy",
+        "slug":  "bestbuy",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/bestbuy.svg",
+        "outputFile":  "brand_extra_026.svg"
+    },
+    {
+        "number":  28,
+        "brand":  "Wendy\u0027s",
+        "slug":  "wendys",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/wendys.svg",
+        "outputFile":  "brand_extra_028.svg"
+    },
+    {
+        "number":  29,
+        "brand":  "Dunkin",
+        "slug":  "dunkin",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/dunkin.svg",
+        "outputFile":  "brand_extra_029.svg"
+    },
+    {
+        "number":  30,
+        "brand":  "Baskin-Robbins",
+        "slug":  "baskinrobbins",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/baskinrobbins.svg",
+        "outputFile":  "brand_extra_030.svg"
+    },
+    {
+        "number":  31,
+        "brand":  "Tim Hortons",
+        "slug":  "timhortons",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/timhortons.svg",
+        "outputFile":  "brand_extra_031.svg"
+    },
+    {
+        "number":  51,
+        "brand":  "BYD",
+        "slug":  "byd",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/byd.svg",
+        "outputFile":  "brand_extra_051.svg"
+    },
+    {
+        "number":  78,
+        "brand":  "Meta Quest",
+        "slug":  "metaquest",
+        "url":  "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/metaquest.svg",
+        "outputFile":  "brand_extra_078.svg"
+    }
+]
