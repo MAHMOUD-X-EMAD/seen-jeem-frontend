@@ -40,8 +40,8 @@ export class ThemeService {
 
   getThemeLabel(): string {
     return this.currentTheme() === 'royal'
-      ? 'Royal Game Show'
-      : 'Pearl Pro';
+      ? 'Dark'
+      : 'Light';
   }
 
   private getSavedTheme(): AppTheme | null {
