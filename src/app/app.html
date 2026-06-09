@@ -4,7 +4,7 @@
 
   <aside class="sidebar">
     <div class="brand">
-      <div class="brand-icon">لعبة الابخل</div>
+      <!-- <div class="brand-icon">لعبة الابخل</div> -->
       <div>
       </div>
     </div>
@@ -45,10 +45,24 @@
       <div>
       </div>
 
-      <button class="primary-action">
-        <span>＋</span>
-        لعبة جديدة
-      </button>
+      <div class="topbar-actions">
+        <button
+          type="button"
+          class="theme-switcher"
+          (click)="themeService.toggleTheme()"
+        >
+          <span>
+            {{ themeService.currentTheme() === 'royal' ? '🌙' : '🤍' }}
+          </span>
+
+          <strong>{{ themeService.getThemeLabel() }}</strong>
+        </button>
+
+        <button class="primary-action">
+          <span>＋</span>
+          لعبة جديدة
+        </button>
+      </div>
     </header>
 
     <section class="page-wrapper">
