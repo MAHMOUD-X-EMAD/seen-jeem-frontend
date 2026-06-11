@@ -1,7 +1,8 @@
 export enum HelpOptionType {
   DoublePoints = 1,
   TwoAnswers = 2,
-  StopPlayer = 3
+  StopPlayer = 3,
+  Trap = 4
 }
 
 export interface CreateGameRequest {
@@ -110,7 +111,7 @@ export interface AwardPointsResponse {
 
 export interface UseHelpOptionRequest {
   teamId: string;
-  type: 'TwoAnswers' | 'StopPlayer' | string;
+  type: 'TwoAnswers' | 'StopPlayer' | 'Trap' | string;
   playerId?: string | null;
 }
 

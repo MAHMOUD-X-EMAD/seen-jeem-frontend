@@ -43,7 +43,8 @@ export class GameBoardComponent implements OnInit, OnDestroy {
   timerMode: 'main' | 'second' = 'main';
 
   selectedPreQuestionHelpType: 'DoublePoints' | null = null;
-
+  trapUsedForActiveQuestion = false;
+  
   private timerRef: ReturnType<typeof setInterval> | null = null;
   private destroyed = false;
 
@@ -107,6 +108,7 @@ export class GameBoardComponent implements OnInit, OnDestroy {
   this.correctTeamId = null;
   this.mainTeamAnswerText = '';
   this.secondTeamAnswerText = '';
+  this.trapUsedForActiveQuestion = false;
   this.actionLoading = true;
   this.detect();
 
@@ -196,10 +198,13 @@ export class GameBoardComponent implements OnInit, OnDestroy {
       next: (response) => {
         this.updateScores(response.teams);
 
-        this.successMessage =
-          response.pointsAwarded > 0
-            ? `تم إضافة ${response.pointsAwarded} نقطة.`
-            : 'تم إنهاء الدور بدون نقاط.';
+        if (response.pointsAwarded > 0) {
+          this.successMessage = `تم إضافة ${response.pointsAwarded} نقطة.`;
+        } else if (response.pointsAwarded < 0) {
+          this.successMessage = `تم خصم ${Math.abs(response.pointsAwarded)} نقطة.`;
+        } else {
+          this.successMessage = 'تم إنهاء الدور بدون نقاط.';
+        }
 
         this.closeActiveQuestion();
 
@@ -249,9 +254,19 @@ export class GameBoardComponent implements OnInit, OnDestroy {
 
 
 
-  chooseCorrectTeam(teamId: string | null): void {
+  awardPointsForTeam(teamId: string | null): void {
+    if (!this.activeQuestion || this.actionLoading) {
+      return;
+    }
+
+    if (!this.revealedAnswer) {
+      this.turnErrorMessage = 'لازم تكشف الإجابة الأول.';
+      this.detect();
+      return;
+    }
+
     this.correctTeamId = teamId;
-    this.detect();
+    this.awardPoints();
   }
 
   startMainTimer(): void {
@@ -413,6 +428,8 @@ getHelpIcon(helpType: string): string {
       return '✌️';
     case 'StopPlayer':
       return '🛑';
+    case 'Trap':
+      return '🪤';
     default:
       return '🎁';
   }
@@ -491,7 +508,35 @@ useStopPlayer(): void {
   );
 }
 
-useTurnHelpOption(teamId: string, helpType: 'TwoAnswers' | 'StopPlayer'): void {
+canUseTrap(): boolean {
+  if (!this.activeQuestion || this.revealedAnswer || this.actionLoading) {
+    return false;
+  }
+
+  const help = this.getTeamHelpOption(
+    this.activeQuestion.mainTeam.id,
+    'Trap'
+  );
+
+  return !!help && !help.isUsed && !this.trapUsedForActiveQuestion;
+}
+
+useTrap(): void {
+  if (!this.activeQuestion || !this.canUseTrap()) {
+    return;
+  }
+
+  this.useTurnHelpOption(
+    this.activeQuestion.mainTeam.id,
+    'Trap'
+  );
+}
+
+isTrapUsed(): boolean {
+  return this.trapUsedForActiveQuestion;
+}
+
+useTurnHelpOption(teamId: string, helpType: 'TwoAnswers' | 'StopPlayer' | 'Trap'): void {
   if (!this.activeQuestion) {
     return;
   }
@@ -518,6 +563,15 @@ useTurnHelpOption(teamId: string, helpType: 'TwoAnswers' | 'StopPlayer'): void {
 
       if (response.type === 'StopPlayer') {
         this.successMessage = 'تم تفعيل مساعدة إيقاف لاعب للفريق المنافس.';
+      }
+
+      if (response.type === 'Trap') {
+        this.trapUsedForActiveQuestion = true;
+
+        this.successMessage =
+          `تم تفعيل الفخ. السؤال اتحول للفريق المنافس: ${this.activeQuestion?.secondTeam.name}.`;
+
+        this.startSecondTimer();
       }
 
       this.actionLoading = false;

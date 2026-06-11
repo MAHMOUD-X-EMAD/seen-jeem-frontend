@@ -192,6 +192,33 @@
             </article>
 
             <article
+              class="active-help-card trap"
+              [class.used]="isTrapUsed()"
+            >
+              <div>
+                <span>🪤</span>
+                <strong>فخ</strong>
+                <p>
+                  متاحة للفريق اللي عليه الدور:
+                  {{ activeQuestion.mainTeam.name }}
+                </p>
+
+                <small *ngIf="isTrapUsed()">
+                  السؤال اتحول للفريق المنافس:
+                  {{ activeQuestion.secondTeam.name }}
+                </small>
+              </div>
+
+              <button
+                type="button"
+                [disabled]="!canUseTrap()"
+                (click)="useTrap()"
+              >
+                {{ isTrapUsed() ? 'تم استخدام الفخ' : 'استخدام' }}
+              </button>
+            </article>
+
+            <article
                 class="active-help-card danger"
                 [class.used]="isStopPlayerUsed()"
             >
@@ -256,52 +283,65 @@
         </div>
 
         <div class="winner-section" *ngIf="revealedAnswer">
-          <p>مين جاوب صح؟</p>
+          <p *ngIf="!isTrapUsed()">مين جاوب صح؟</p>
+          <p *ngIf="isTrapUsed()">
+            الفخ اتفعل — هل الفريق المنافس جاوب صح؟
+          </p>
 
-          <div class="winner-buttons">
+          <div class="winner-buttons" *ngIf="!isTrapUsed()">
             <button
               type="button"
-              [class.selected]="correctTeamId === activeQuestion.mainTeam.id"
-              (click)="chooseCorrectTeam(activeQuestion.mainTeam.id)"
+              [disabled]="actionLoading"
+              (click)="awardPointsForTeam(activeQuestion.mainTeam.id)"
             >
               {{ activeQuestion.mainTeam.name }}
             </button>
 
             <button
               type="button"
-              [class.selected]="correctTeamId === activeQuestion.secondTeam.id"
-              (click)="chooseCorrectTeam(activeQuestion.secondTeam.id)"
+              [disabled]="actionLoading"
+              (click)="awardPointsForTeam(activeQuestion.secondTeam.id)"
             >
               {{ activeQuestion.secondTeam.name }}
             </button>
 
             <button
               type="button"
-              [class.selected]="correctTeamId === null"
-              (click)="chooseCorrectTeam(null)"
+              [disabled]="actionLoading"
+              (click)="awardPointsForTeam(null)"
             >
               محدش
             </button>
           </div>
+
+          <div class="winner-buttons trap-winner-buttons" *ngIf="isTrapUsed()">
+            <button
+              type="button"
+              [disabled]="actionLoading"
+              (click)="awardPointsForTeam(activeQuestion.secondTeam.id)"
+            >
+              {{ activeQuestion.secondTeam.name }} جاوب صح
+            </button>
+
+            <button
+              type="button"
+              class="danger-choice"
+              [disabled]="actionLoading"
+              (click)="awardPointsForTeam(null)"
+            >
+              {{ activeQuestion.secondTeam.name }} معرفش
+            </button>
+          </div>
         </div>
 
-        <div class="modal-actions">
+        <div class="modal-actions" *ngIf="!revealedAnswer">
           <button
             type="button"
             class="secondary-action"
-            [disabled]="actionLoading || !!revealedAnswer"
+            [disabled]="actionLoading"
             (click)="revealAnswer()"
           >
-            {{ revealedAnswer ? 'تم كشف الإجابة' : 'كشف الإجابة' }}
-          </button>
-
-          <button
-            type="button"
-            class="main-action-btn"
-            [disabled]="actionLoading || !revealedAnswer"
-            (click)="awardPoints()"
-          >
-            {{ actionLoading ? 'جاري الحفظ...' : 'إنهاء الدور وإضافة النقاط' }}
+            كشف الإجابة
           </button>
         </div>
       </section>

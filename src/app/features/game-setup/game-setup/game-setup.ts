@@ -64,6 +64,13 @@ export class GameSetupComponent implements OnInit {
       description: 'الفريق المنافس يوقف لاعب من الإجابة.',
       icon: '🛑',
       selected: true
+    },
+    {
+      type: HelpOptionType.Trap,
+      title: 'الفخ',
+      description: 'الفريق اللي عليه الدور يقدر يوقع الفريق المنافس ف الفخ، والسؤال يتحول للفريق المنافس مع بدء عداد جديد.',
+      icon: '🪤',
+      selected: true
     }
   ];
 

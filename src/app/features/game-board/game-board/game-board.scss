@@ -997,7 +997,7 @@
 
 .question-modal-backdrop .question-modal {
   width: 80vw;
-  height: 100vh;
+  height: 90vh;
   max-height: 100vh;
   border-radius: 0;
   overflow: auto;
@@ -1068,4 +1068,21 @@
   .question-modal-backdrop .question-media {
     max-height: 38vh;
   }
+}
+
+.active-help-card.trap {
+  border-color: rgba(249, 115, 22, 0.45);
+  background:
+    linear-gradient(135deg, rgba(249, 115, 22, 0.16), rgba(124, 58, 237, 0.12)),
+    var(--surface);
+}
+
+.active-help-card.trap strong {
+  color: #f97316;
+}
+
+.trap-winner-buttons .danger-choice {
+  background: rgba(239, 68, 68, 0.14);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #ef4444;
 }
