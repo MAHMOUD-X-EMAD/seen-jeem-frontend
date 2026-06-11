@@ -49,7 +49,9 @@ export const CATEGORY_IMAGE_MAP: Record<number, string> = {
   45: 'assets/category-images/country_maps.svg',
   46: 'assets/category-images/who_am_i.svg',
   47: 'assets/category-images/guess_singer.svg',
-  48: 'assets/category-images/guess_song_5_seconds.svg'
+  48: 'assets/category-images/guess_song_5_seconds.svg',
+  49: 'assets/category-images/movie_story.svg',
+  50: 'assets/category-images/anime.svg'
 };
 
 export function getCategoryImagePath(categoryId: number): string {
