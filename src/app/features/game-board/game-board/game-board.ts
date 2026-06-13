@@ -11,6 +11,12 @@ import {
   SelectedQuestionResponse
 } from '../../../core/models/game.model';
 import { GameService } from '../../../core/services/game.service';
+import { FinalRoundService } from '../../../core/services/final-round.service';
+import {
+  CompleteFinalRoundRequest,
+  FinalRoundStateResponse,
+  LockFinalRoundWagersRequest
+} from '../../../core/models/final-round.model';
 import { getCategoryImagePath } from '../../../core/constants/category-image-map';
 
 @Component({
@@ -40,17 +46,25 @@ export class GameBoardComponent implements OnInit, OnDestroy {
 
   remainingSeconds = 0;
   timerRunning = false;
-  timerMode: 'main' | 'second' = 'main';
-
+  timerMode: 'main' | 'second' | 'final' = 'main';
+  
   selectedPreQuestionHelpType: 'DoublePoints' | null = null;
   trapUsedForActiveQuestion = false;
-  
+
+  finalRound: FinalRoundStateResponse | null = null;
+  finalRoundWagers: Record<string, number | null> = {};
+  finalRoundAnswers: Record<string, string> = {};
+  finalRoundCorrectness: Record<string, boolean | null> = {};
+  finalRoundErrorMessage = '';
+  finalRoundSuccessMessage = '';
+
   private timerRef: ReturnType<typeof setInterval> | null = null;
   private destroyed = false;
 
   constructor(
     private route: ActivatedRoute,
     private gameService: GameService,
+    private finalRoundService: FinalRoundService,
     private cdr: ChangeDetectorRef
   ) {}
 
@@ -80,6 +94,11 @@ export class GameBoardComponent implements OnInit, OnDestroy {
       next: (game) => {
         this.game = game;
         this.loading = false;
+
+        if (this.isBoardCompleted) {
+          this.loadFinalRound();
+        }
+
         this.detect();
       },
       error: () => {
@@ -285,7 +304,7 @@ export class GameBoardComponent implements OnInit, OnDestroy {
     this.startTimer(this.activeQuestion.secondTeamTimerSeconds, 'second');
   }
 
-  startTimer(seconds: number, mode: 'main' | 'second'): void {
+  startTimer(seconds: number, mode: 'main' | 'second' | 'final'): void {
     this.clearTimer();
 
     this.timerMode = mode;
@@ -334,6 +353,15 @@ export class GameBoardComponent implements OnInit, OnDestroy {
   }
 
   resetCurrentTimer(): void {
+    if (this.timerMode === 'final') {
+      if (!this.finalRound) {
+        return;
+      }
+
+      this.startTimer(this.finalRound.timerSeconds, 'final');
+      return;
+    }
+
     if (!this.activeQuestion) {
       return;
     }
@@ -366,6 +394,10 @@ export class GameBoardComponent implements OnInit, OnDestroy {
   }
 
   get timerLabel(): string {
+    if (this.timerMode === 'final') {
+      return 'تايمر الجولة النهائية';
+    }
+
     return this.timerMode === 'main'
       ? 'تايمر الفريق الأساسي'
       : 'تايمر الفريق الثاني';
@@ -429,7 +461,7 @@ getHelpIcon(helpType: string): string {
     case 'StopPlayer':
       return '🛑';
     case 'Trap':
-      return '🪤';
+      return '🪤';    
     default:
       return '🎁';
   }
@@ -605,6 +637,330 @@ isStopPlayerUsed(): boolean {
     this.activeQuestion.secondTeam.id,
     'StopPlayer'
   )?.isUsed;
+}
+
+get isBoardCompleted(): boolean {
+  const categories = this.game?.categories ?? [];
+
+  return (
+    categories.length > 0 &&
+    categories.every(category =>
+      category.questions.length > 0 &&
+      category.questions.every(question => question.isUsed)
+    )
+  );
+}
+
+get canStartFinalRound(): boolean {
+  return (
+    this.isBoardCompleted &&
+    !this.finalRound &&
+    !this.activeQuestion &&
+    !this.loading &&
+    !this.actionLoading
+  );
+}
+
+get canLockFinalRoundWagers(): boolean {
+  return (
+    this.finalRound?.status === 'WaitingForWagers' &&
+    !this.actionLoading
+  );
+}
+
+get canRevealFinalQuestion(): boolean {
+  return (
+    this.finalRound?.status === 'WagersLocked' &&
+    !this.actionLoading
+  );
+}
+
+get canRevealFinalAnswer(): boolean {
+  return (
+    this.finalRound?.status === 'QuestionRevealed' &&
+    !this.actionLoading
+  );
+}
+
+get canCompleteFinalRound(): boolean {
+  if (
+    this.finalRound?.status !== 'AnswerRevealed' ||
+    this.actionLoading
+  ) {
+    return false;
+  }
+
+  return this.finalRound.teams.every(
+    team => this.finalRoundCorrectness[team.teamId] !== null &&
+            this.finalRoundCorrectness[team.teamId] !== undefined
+  );
+}
+
+loadFinalRound(): void {
+  if (!this.gameSessionId) {
+    return;
+  }
+
+  this.finalRoundService.getFinalRound(this.gameSessionId).subscribe({
+    next: (response) => {
+      this.applyFinalRoundState(response);
+      this.detect();
+    },
+    error: (error) => {
+      if (error?.status !== 404) {
+        this.finalRoundErrorMessage =
+          error?.error || 'حصل خطأ أثناء تحميل الجولة النهائية.';
+      }
+
+      this.detect();
+    }
+  });
+}
+
+startFinalRound(): void {
+  if (!this.canStartFinalRound) {
+    return;
+  }
+
+  this.actionLoading = true;
+  this.finalRoundErrorMessage = '';
+  this.finalRoundSuccessMessage = '';
+  this.detect();
+
+  this.finalRoundService.startFinalRound(this.gameSessionId).subscribe({
+    next: (response) => {
+      this.applyFinalRoundState(response);
+      this.finalRoundSuccessMessage =
+        `بدأت الجولة النهائية. التصنيف: ${response.categoryName}`;
+      this.actionLoading = false;
+      this.detect();
+    },
+    error: (error) => {
+      this.finalRoundErrorMessage =
+        error?.error || 'حصل خطأ أثناء بدء الجولة النهائية.';
+      this.actionLoading = false;
+      this.detect();
+    }
+  });
+}
+
+lockFinalRoundWagers(): void {
+  if (!this.finalRound || !this.canLockFinalRoundWagers) {
+    return;
+  }
+
+  const teams: LockFinalRoundWagersRequest['teams'] = [];
+
+  for (const team of this.finalRound.teams) {
+    const wager = Number(this.finalRoundWagers[team.teamId] ?? 0);
+    const maximumWager = Math.max(team.currentScore, 0);
+
+    if (!Number.isInteger(wager) || wager < 0 || wager > maximumWager) {
+      this.finalRoundErrorMessage =
+        `رهان ${team.teamName} لازم يكون رقم صحيح من 0 إلى ${maximumWager}.`;
+      this.detect();
+      return;
+    }
+
+    teams.push({
+      teamId: team.teamId,
+      wager
+    });
+  }
+
+  const request: LockFinalRoundWagersRequest = { teams };
+
+  this.actionLoading = true;
+  this.finalRoundErrorMessage = '';
+  this.finalRoundSuccessMessage = '';
+  this.detect();
+
+  this.finalRoundService.lockWagers(
+    this.gameSessionId,
+    this.finalRound.finalRoundId,
+    request
+  ).subscribe({
+    next: (response) => {
+      this.applyFinalRoundState(response);
+      this.finalRoundSuccessMessage = 'تم تثبيت رهانات الفريقين.';
+      this.actionLoading = false;
+      this.detect();
+    },
+    error: (error) => {
+      this.finalRoundErrorMessage =
+        error?.error || 'حصل خطأ أثناء تثبيت الرهانات.';
+      this.actionLoading = false;
+      this.detect();
+    }
+  });
+}
+
+revealFinalQuestion(): void {
+  if (!this.finalRound || !this.canRevealFinalQuestion) {
+    return;
+  }
+
+  this.actionLoading = true;
+  this.finalRoundErrorMessage = '';
+  this.finalRoundSuccessMessage = '';
+  this.detect();
+
+  this.finalRoundService.revealQuestion(
+    this.gameSessionId,
+    this.finalRound.finalRoundId
+  ).subscribe({
+    next: (response) => {
+      this.applyFinalRoundState(response);
+      this.finalRoundSuccessMessage = 'تم كشف سؤال الجولة النهائية.';
+      this.actionLoading = false;
+      this.detect();
+    },
+    error: (error) => {
+      this.finalRoundErrorMessage =
+        error?.error || 'حصل خطأ أثناء كشف سؤال الجولة النهائية.';
+      this.actionLoading = false;
+      this.detect();
+    }
+  });
+}
+
+revealFinalAnswer(): void {
+  if (!this.finalRound || !this.canRevealFinalAnswer) {
+    return;
+  }
+
+  this.actionLoading = true;
+  this.finalRoundErrorMessage = '';
+  this.finalRoundSuccessMessage = '';
+  this.detect();
+
+  this.finalRoundService.revealAnswer(
+    this.gameSessionId,
+    this.finalRound.finalRoundId
+  ).subscribe({
+    next: (response) => {
+      this.stopTimer();
+      this.applyFinalRoundState(response);
+      this.finalRoundSuccessMessage = 'تم كشف الإجابة الصحيحة.';
+      this.actionLoading = false;
+      this.detect();
+    },
+    error: (error) => {
+      this.finalRoundErrorMessage =
+        error?.error || 'حصل خطأ أثناء كشف الإجابة.';
+      this.actionLoading = false;
+      this.detect();
+    }
+  });
+}
+
+setFinalRoundCorrectness(teamId: string, isCorrect: boolean): void {
+  if (this.finalRound?.status !== 'AnswerRevealed') {
+    return;
+  }
+
+  this.finalRoundCorrectness[teamId] = isCorrect;
+  this.detect();
+}
+
+completeFinalRound(): void {
+  if (!this.finalRound || !this.canCompleteFinalRound) {
+    return;
+  }
+
+  const request: CompleteFinalRoundRequest = {
+    teams: this.finalRound.teams.map(team => ({
+      teamId: team.teamId,
+      answerText: this.finalRoundAnswers[team.teamId]?.trim() || null,
+      isCorrect: this.finalRoundCorrectness[team.teamId] === true
+    }))
+  };
+
+  this.actionLoading = true;
+  this.finalRoundErrorMessage = '';
+  this.finalRoundSuccessMessage = '';
+  this.detect();
+
+  this.finalRoundService.completeFinalRound(
+    this.gameSessionId,
+    this.finalRound.finalRoundId,
+    request
+  ).subscribe({
+    next: (response) => {
+      this.applyFinalRoundState(response);
+
+      this.updateScores(
+        response.teams.map(team => ({
+          id: team.teamId,
+          score: team.currentScore
+        }))
+      );
+
+      this.finalRoundSuccessMessage = response.isDraw
+        ? 'انتهت الجولة النهائية بالتعادل.'
+        : `الفائز هو ${response.winnerTeamName}.`;
+
+      this.actionLoading = false;
+      this.detect();
+    },
+    error: (error) => {
+      this.finalRoundErrorMessage =
+        error?.error || 'حصل خطأ أثناء إنهاء الجولة النهائية.';
+      this.actionLoading = false;
+      this.detect();
+    }
+  });
+}
+
+getMaximumFinalRoundWager(teamId: string): number {
+  const team = this.finalRound?.teams.find(x => x.teamId === teamId);
+  return Math.max(team?.currentScore ?? 0, 0);
+}
+
+private applyFinalRoundState(response: FinalRoundStateResponse): void {
+  this.finalRound = response;
+
+  for (const team of response.teams) {
+    if (team.wager !== null) {
+      this.finalRoundWagers[team.teamId] = team.wager;
+    } else if (this.finalRoundWagers[team.teamId] === undefined) {
+      this.finalRoundWagers[team.teamId] = 0;
+    }
+
+    if (team.answerText !== null) {
+      this.finalRoundAnswers[team.teamId] = team.answerText;
+    } else if (this.finalRoundAnswers[team.teamId] === undefined) {
+      this.finalRoundAnswers[team.teamId] = '';
+    }
+
+    if (team.isCorrect !== null) {
+      this.finalRoundCorrectness[team.teamId] = team.isCorrect;
+    } else if (this.finalRoundCorrectness[team.teamId] === undefined) {
+      this.finalRoundCorrectness[team.teamId] = null;
+    }
+  }
+
+  if (
+    response.status === 'QuestionRevealed' &&
+    response.questionRevealedAt
+  ) {
+    const startedAt = new Date(response.questionRevealedAt).getTime();
+    const elapsedSeconds = Math.floor((Date.now() - startedAt) / 1000);
+    const secondsLeft = Math.max(
+      response.timerSeconds - elapsedSeconds,
+      0
+    );
+
+    this.startTimer(secondsLeft, 'final');
+  }
+}
+
+setHalfFinalRoundWager(teamId: string): void {
+  const maximumWager = this.getMaximumFinalRoundWager(teamId);
+
+  this.finalRoundWagers[teamId] = Math.floor(maximumWager / 2);
+
+  this.detect();
 }
 
 adjustTeamScore(teamId: string, pointsDelta: 100 | -100): void {

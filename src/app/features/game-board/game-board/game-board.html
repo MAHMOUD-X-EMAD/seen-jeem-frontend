@@ -91,6 +91,463 @@
   </article>
 </section>
 
+<!-- ================= FINAL ROUND ================= -->
+
+    <section
+      class="final-round-launch"
+      *ngIf="isBoardCompleted && !finalRound"
+    >
+      <div class="final-round-launch-icon">🏆</div>
+
+      <div>
+        <span class="final-round-eyebrow">انتهت الجولة الأساسية</span>
+
+        <h2>استعدوا للجولة النهائية</h2>
+
+        <p>
+          هيظهر تصنيف السؤال الأول، وبعدها كل فريق يحدد الرهان
+          قبل كشف السؤال.
+        </p>
+      </div>
+
+      <button
+        type="button"
+        class="final-primary-btn"
+        [disabled]="!canStartFinalRound"
+        (click)="startFinalRound()"
+      >
+        {{ actionLoading ? 'جاري البدء...' : 'ابدأ الجولة النهائية' }}
+      </button>
+    </section>
+
+    <section
+      class="final-round-stage"
+      *ngIf="finalRound as round"
+    >
+      <header class="final-round-header">
+        <div>
+          <span class="final-round-eyebrow">🏆 الجولة النهائية</span>
+
+          <h2>{{ round.categoryName }}</h2>
+
+          <p *ngIf="round.status === 'WaitingForWagers'">
+            التصنيف ظهر، دلوقتي كل فريق يحدد الرهان.
+          </p>
+
+          <p *ngIf="round.status === 'WagersLocked'">
+            تم تثبيت الرهانات، والسؤال لسه مخفي.
+          </p>
+
+          <p *ngIf="round.status === 'QuestionRevealed'">
+            الفريقان يجيبان على نفس السؤال.
+          </p>
+
+          <p *ngIf="round.status === 'AnswerRevealed'">
+            حدد نتيجة إجابة كل فريق.
+          </p>
+
+          <p *ngIf="round.status === 'Completed'">
+            انتهت الجولة النهائية.
+          </p>
+        </div>
+
+        <div class="final-round-status">
+          <span *ngIf="round.status === 'WaitingForWagers'">
+            انتظار الرهانات
+          </span>
+
+          <span *ngIf="round.status === 'WagersLocked'">
+            الرهانات مثبتة
+          </span>
+
+          <span *ngIf="round.status === 'QuestionRevealed'">
+            السؤال ظاهر
+          </span>
+
+          <span *ngIf="round.status === 'AnswerRevealed'">
+            الإجابة ظاهرة
+          </span>
+
+          <span *ngIf="round.status === 'Completed'">
+            مكتملة
+          </span>
+        </div>
+      </header>
+
+      <div
+        class="final-round-message error"
+        *ngIf="finalRoundErrorMessage"
+      >
+        {{ finalRoundErrorMessage }}
+      </div>
+
+      <div
+        class="final-round-message success"
+        *ngIf="finalRoundSuccessMessage"
+      >
+        {{ finalRoundSuccessMessage }}
+      </div>
+
+      <!-- ================= الرهانات ================= -->
+
+      <div
+        class="final-round-step"
+        *ngIf="round.status === 'WaitingForWagers'"
+      >
+        <div class="step-heading">
+          <span>المرحلة الأولى</span>
+          <h3>حدد رهان كل فريق</h3>
+
+          <p>
+            أقصى رهان لكل فريق هو رصيده الحالي.
+          </p>
+        </div>
+
+        <div class="final-teams-grid">
+          <article
+            class="final-team-card"
+            *ngFor="let team of round.teams"
+          >
+            <div class="final-team-name">
+              <span>الفريق</span>
+              <strong>{{ team.teamName }}</strong>
+            </div>
+
+            <div class="current-final-score">
+              <span>الرصيد الحالي</span>
+              <strong>{{ team.currentScore }}</strong>
+            </div>
+
+            <label class="wager-input">
+              <span>
+                الرهان من 0 إلى
+                {{ getMaximumFinalRoundWager(team.teamId) }}
+              </span>
+
+              <input
+                type="number"
+                min="0"
+                step="100"
+                [max]="getMaximumFinalRoundWager(team.teamId)"
+                [(ngModel)]="finalRoundWagers[team.teamId]"
+                [disabled]="actionLoading"
+              />
+            </label>
+
+            <div class="quick-wagers">
+              <button
+                type="button"
+                [disabled]="actionLoading"
+                (click)="finalRoundWagers[team.teamId] = 0"
+              >
+                0
+              </button>
+
+              <button
+                type="button"
+                [disabled]="actionLoading"
+                (click)="setHalfFinalRoundWager(team.teamId)"
+              >
+                النصف
+              </button>
+
+              <button
+                type="button"
+                [disabled]="actionLoading"
+                (click)="
+                  finalRoundWagers[team.teamId] =
+                    getMaximumFinalRoundWager(team.teamId)
+                "
+              >
+                الكل
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <div class="final-round-actions">
+          <button
+            type="button"
+            class="final-primary-btn"
+            [disabled]="!canLockFinalRoundWagers"
+            (click)="lockFinalRoundWagers()"
+          >
+            {{ actionLoading ? 'جاري التثبيت...' : 'تثبيت الرهانات' }}
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= الرهانات اتثبتت ================= -->
+
+      <div
+        class="final-round-step"
+        *ngIf="round.status === 'WagersLocked'"
+      >
+        <div class="step-heading">
+          <span>المرحلة الثانية</span>
+          <h3>الرهانات تم تثبيتها</h3>
+
+          <p>
+            بعد كشف السؤال يبدأ تايمر مدته
+            {{ round.timerSeconds }} ثانية.
+          </p>
+        </div>
+
+        <div class="locked-wagers">
+          <article *ngFor="let team of round.teams">
+            <span>{{ team.teamName }}</span>
+            <strong>{{ team.wager }} نقطة</strong>
+          </article>
+        </div>
+
+        <div class="final-round-actions">
+          <button
+            type="button"
+            class="final-primary-btn"
+            [disabled]="!canRevealFinalQuestion"
+            (click)="revealFinalQuestion()"
+          >
+            {{ actionLoading ? 'جاري كشف السؤال...' : 'كشف السؤال النهائي' }}
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= السؤال ظاهر ================= -->
+
+      <div
+        class="final-round-step"
+        *ngIf="round.status === 'QuestionRevealed'"
+      >
+        <div class="final-question-top">
+          <div>
+            <span class="final-round-eyebrow">
+              سؤال الجولة النهائية
+            </span>
+
+            <h3>{{ round.categoryName }}</h3>
+          </div>
+
+          <div
+            class="final-timer"
+            [class.danger]="remainingSeconds <= 10"
+          >
+            <span>{{ timerLabel }}</span>
+            <strong>{{ remainingSeconds }}</strong>
+          </div>
+        </div>
+
+        <div class="final-question-text">
+          {{ round.questionText }}
+        </div>
+
+        <div
+          class="final-question-media"
+          *ngIf="round.imageUrl || round.audioUrl"
+        >
+          <img
+            *ngIf="round.imageUrl"
+            [src]="round.imageUrl"
+            alt="صورة سؤال الجولة النهائية"
+          />
+
+          <audio
+            *ngIf="round.audioUrl"
+            [src]="round.audioUrl"
+            controls
+          ></audio>
+        </div>
+
+        <div class="final-timer-actions">
+          <button
+            type="button"
+            (click)="pauseTimer()"
+            [disabled]="!timerRunning"
+          >
+            إيقاف مؤقت
+          </button>
+
+          <button
+            type="button"
+            (click)="resumeTimer()"
+            [disabled]="timerRunning || remainingSeconds <= 0"
+          >
+            استكمال
+          </button>
+
+          <button
+            type="button"
+            (click)="resetCurrentTimer()"
+          >
+            إعادة التايمر
+          </button>
+        </div>
+
+        <!-- <div class="final-answer-inputs">
+          <label *ngFor="let team of round.teams">
+            <span>إجابة {{ team.teamName }}</span>
+
+            <textarea
+              rows="3"
+              [(ngModel)]="finalRoundAnswers[team.teamId]"
+              [disabled]="actionLoading"
+              placeholder="اكتب إجابة الفريق هنا"
+            ></textarea>
+          </label>
+        </div> -->
+
+        <div class="final-round-actions">
+          <button
+            type="button"
+            class="final-primary-btn"
+            [disabled]="!canRevealFinalAnswer"
+            (click)="revealFinalAnswer()"
+          >
+            {{ actionLoading ? 'جاري كشف الإجابة...' : 'كشف الإجابة الصحيحة' }}
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= الإجابة ظهرت ================= -->
+
+      <div
+        class="final-round-step"
+        *ngIf="round.status === 'AnswerRevealed'"
+      >
+        <div class="final-correct-answer">
+          <span>الإجابة الصحيحة</span>
+          <strong>{{ round.correctAnswer }}</strong>
+        </div>
+
+        <div class="final-results-selection">
+          <article
+            class="final-result-card"
+            *ngFor="let team of round.teams"
+          >
+            <div class="final-result-header">
+              <div>
+                <span>الفريق</span>
+                <strong>{{ team.teamName }}</strong>
+              </div>
+
+              <div>
+                <span>الرهان</span>
+                <strong>{{ team.wager }} نقطة</strong>
+              </div>
+            </div>
+
+            <label>
+              <span>إجابة الفريق</span>
+
+              <textarea
+                rows="3"
+                [(ngModel)]="finalRoundAnswers[team.teamId]"
+                [disabled]="actionLoading"
+                placeholder="اكتب إجابة الفريق"
+              ></textarea>
+            </label>
+
+            <div class="correctness-buttons">
+              <button
+                type="button"
+                class="correct"
+                [class.selected]="
+                  finalRoundCorrectness[team.teamId] === true
+                "
+                [disabled]="actionLoading"
+                (click)="setFinalRoundCorrectness(team.teamId, true)"
+              >
+                ✓ إجابة صحيحة
+              </button>
+
+              <button
+                type="button"
+                class="wrong"
+                [class.selected]="
+                  finalRoundCorrectness[team.teamId] === false
+                "
+                [disabled]="actionLoading"
+                (click)="setFinalRoundCorrectness(team.teamId, false)"
+              >
+                ✕ إجابة خاطئة
+              </button>
+            </div>
+
+            <div
+              class="expected-score-change positive"
+              *ngIf="finalRoundCorrectness[team.teamId] === true"
+            >
+              سيتم إضافة {{ team.wager }} نقطة
+            </div>
+
+            <div
+              class="expected-score-change negative"
+              *ngIf="finalRoundCorrectness[team.teamId] === false"
+            >
+              سيتم خصم {{ team.wager }} نقطة
+            </div>
+          </article>
+        </div>
+
+        <div class="final-round-actions">
+          <button
+            type="button"
+            class="final-primary-btn"
+            [disabled]="!canCompleteFinalRound"
+            (click)="completeFinalRound()"
+          >
+            {{ actionLoading ? 'جاري حساب النتيجة...' : 'اعتماد النتيجة النهائية' }}
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= الجولة انتهت ================= -->
+
+      <div
+        class="final-round-completed"
+        *ngIf="round.status === 'Completed'"
+      >
+        <div class="winner-crown">
+          {{ round.isDraw ? '🤝' : '👑' }}
+        </div>
+
+        <span class="final-round-eyebrow">
+          النتيجة النهائية
+        </span>
+
+        <h2 *ngIf="!round.isDraw">
+          الفائز هو {{ round.winnerTeamName }}
+        </h2>
+
+        <h2 *ngIf="round.isDraw">
+          انتهت اللعبة بالتعادل
+        </h2>
+
+        <div class="completed-teams">
+          <article
+            *ngFor="let team of round.teams"
+            [class.winner]="team.teamId === round.winnerTeamId"
+          >
+            <span>{{ team.teamName }}</span>
+
+            <strong>{{ team.currentScore }}</strong>
+
+            <small
+              [class.positive]="team.scoreDelta > 0"
+              [class.negative]="team.scoreDelta < 0"
+            >
+              <ng-container *ngIf="team.scoreDelta > 0">
+                +{{ team.scoreDelta }}
+              </ng-container>
+
+              <ng-container *ngIf="team.scoreDelta <= 0">
+                {{ team.scoreDelta }}
+              </ng-container>
+            </small>
+          </article>
+        </div>
+      </div>
+    </section>
+
 <div
   class="selected-help-banner"
   *ngIf="selectedPreQuestionHelpType && game?.currentTurnTeamName"
@@ -104,8 +561,11 @@
       جاري فتح السؤال...
     </div>
 
-    <section class="game-board-grid">
-      <article
+    <section
+      class="game-board-grid"
+      *ngIf="!isBoardCompleted && !finalRound"
+    >      
+    <article
         class="category-column"
         *ngFor="let category of game.categories; trackBy: trackByCategoryId"
       >
